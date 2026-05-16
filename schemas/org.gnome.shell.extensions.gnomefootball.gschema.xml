@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="gnomefootball">
+  <schema id="org.gnome.shell.extensions.gnomefootball"
+          path="/org/gnome/shell/extensions/gnomefootball/">
+
+    <key name="poll-interval-minutes" type="i">
+      <range min="1" max="30"/>
+      <default>5</default>
+      <summary>Polling interval in minutes</summary>
+      <description>How often the extension queries ESPN for match updates. Range 1-30 minutes.</description>
+    </key>
+
+    <key name="event-match-start" type="b">
+      <default>true</default>
+      <summary>Notify on match start</summary>
+      <description>Send a notification when a subscribed match kicks off.</description>
+    </key>
+
+    <key name="event-goal" type="b">
+      <default>true</default>
+      <summary>Notify on goal</summary>
+      <description>Send a notification for every goal in subscribed matches.</description>
+    </key>
+
+    <key name="event-yellow-card" type="b">
+      <default>true</default>
+      <summary>Notify on yellow card</summary>
+      <description>Send a notification when a player receives a yellow card.</description>
+    </key>
+
+    <key name="event-red-card" type="b">
+      <default>true</default>
+      <summary>Notify on red card</summary>
+      <description>Send a notification when a player receives a red card (direct or second yellow).</description>
+    </key>
+
+    <key name="event-half-time-end" type="b">
+      <default>true</default>
+      <summary>Notify on first half end</summary>
+      <description>Send a notification when the first half ends.</description>
+    </key>
+
+    <key name="event-second-half-start" type="b">
+      <default>true</default>
+      <summary>Notify on second half start</summary>
+      <description>Send a notification when the second half begins.</description>
+    </key>
+
+    <key name="event-match-end" type="b">
+      <default>true</default>
+      <summary>Notify on match end</summary>
+      <description>Send a notification when the match ends.</description>
+    </key>
+
+    <key name="event-extra-time" type="b">
+      <default>true</default>
+      <summary>Notify on extra time</summary>
+      <description>Send a notification when extra time starts in knockout matches.</description>
+    </key>
+
+    <key name="event-penalties" type="b">
+      <default>true</default>
+      <summary>Notify on penalty shootout</summary>
+      <description>Send a notification when a penalty shootout begins and for each penalty.</description>
+    </key>
+
+    <key name="subscriptions-json" type="s">
+      <default>"{}"</default>
+      <summary>Serialized subscriptions map</summary>
+      <description>JSON object: { "league.slug": { "mode": "all"|"teams", "teams": ["teamId", ...] } }.</description>
+    </key>
+
+    <key name="catalog-cache-json" type="s">
+      <default>"{}"</default>
+      <summary>Cached league and team catalog</summary>
+      <description>JSON snapshot of leagues and teams as returned by ESPN. Refreshed every 7 days.</description>
+    </key>
+
+    <key name="catalog-fetched-at" type="x">
+      <default>0</default>
+      <summary>Catalog last fetch timestamp</summary>
+      <description>UNIX timestamp (seconds) of the last successful catalog refresh.</description>
+    </key>
+
+    <key name="force-check-trigger" type="x">
+      <default>0</default>
+      <summary>Force-check trigger timestamp</summary>
+      <description>Bumped by the preferences UI to ask the background poller to run immediately.</description>
+    </key>
+
+  </schema>
+</schemalist>

@@ -1,0 +1,185 @@
+# GnomeFootball — translation template.
+# Copyright (C) 2026
+# This file is distributed under the same license as the GnomeFootball extension.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnomefootball 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-16 00:00+0000\n"
+"PO-Revision-Date: 2026-05-16 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Notification strings (lib/notifier.js)
+msgid "Home"
+msgstr ""
+
+msgid "Away"
+msgstr ""
+
+msgid "Kick-off"
+msgstr ""
+
+msgid "GOAL"
+msgstr ""
+
+msgid "Yellow card"
+msgstr ""
+
+msgid "Red card"
+msgstr ""
+
+msgid "Half-time"
+msgstr ""
+
+msgid "Second half"
+msgstr ""
+
+msgid "Full-time"
+msgstr ""
+
+msgid "Extra time"
+msgstr ""
+
+msgid "Penalty shootout"
+msgstr ""
+
+msgid "Match update"
+msgstr ""
+
+#. Preferences — country group titles
+msgid "Spain"
+msgstr ""
+
+msgid "England"
+msgstr ""
+
+msgid "Italy"
+msgstr ""
+
+msgid "France"
+msgstr ""
+
+msgid "Portugal"
+msgstr ""
+
+msgid "Germany"
+msgstr ""
+
+msgid "UEFA"
+msgstr ""
+
+msgid "FIFA"
+msgstr ""
+
+#. Preferences — event labels
+msgid "Match start (kick-off)"
+msgstr ""
+
+msgid "Goal"
+msgstr ""
+
+msgid "First half ends"
+msgstr ""
+
+msgid "Second half starts"
+msgstr ""
+
+#. Preferences — pages and groups
+msgid "Competitions"
+msgstr ""
+
+msgid "Catalog"
+msgstr ""
+
+msgid "Leagues and teams come from ESPN and are cached locally."
+msgstr ""
+
+msgid "Refresh now"
+msgstr ""
+
+msgid "Notify for"
+msgstr ""
+
+msgid "All matches"
+msgstr ""
+
+msgid "Specific teams only"
+msgstr ""
+
+msgid "Teams"
+msgstr ""
+
+msgid "Select teams"
+msgstr ""
+
+msgid "Teams will appear once the catalog has loaded."
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid "1 team selected"
+msgstr ""
+
+msgid "teams selected"
+msgstr ""
+
+msgid "Events"
+msgstr ""
+
+msgid "Notification types"
+msgstr ""
+
+msgid "Choose which match events trigger a notification."
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Polling"
+msgstr ""
+
+msgid "How often to query ESPN for updates. Lower values catch events sooner but use more bandwidth."
+msgstr ""
+
+msgid "Polling interval (minutes)"
+msgstr ""
+
+msgid "Range: 1-30 minutes"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "Force a check now"
+msgstr ""
+
+msgid "Asks the background poller to query ESPN immediately."
+msgstr ""
+
+msgid "Check now"
+msgstr ""
+
+msgid "Catalog not loaded yet"
+msgstr ""
+
+msgid "Catalog loaded"
+msgstr ""
+
+msgid "Press \"Refresh now\" to load leagues and teams."
+msgstr ""
+
+msgid "Last refreshed"
+msgstr ""
+
+msgid "refresh recommended"
+msgstr ""
+
+msgid "Refreshing…"
+msgstr ""
