@@ -6,10 +6,12 @@ import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
 
 import { Poller } from './lib/poller.js';
 import { disposeNotifier } from './lib/notifier.js';
+import { initReplay, disposeReplay } from './lib/replay.js';
 
 export default class GnomeFootballExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
+        initReplay(this._settings);
         this._poller = new Poller(this._settings);
         this._poller.enable();
         console.log('[GnomeFootball] enabled');
@@ -20,6 +22,7 @@ export default class GnomeFootballExtension extends Extension {
             this._poller.disable();
             this._poller = null;
         }
+        disposeReplay();
         disposeNotifier();
         this._settings = null;
         console.log('[GnomeFootball] disabled');
