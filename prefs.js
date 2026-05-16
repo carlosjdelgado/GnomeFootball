@@ -7,6 +7,7 @@
 //   3. General: polling interval and a manual "check now" button.
 
 import Adw from 'gi://Adw';
+import Gdk from 'gi://Gdk';
 import Gtk from 'gi://Gtk';
 
 import {
@@ -90,6 +91,10 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
     fillPreferencesWindow(window) {
         this._settings = this.getSettings();
 
+        const display = Gdk.Display.get_default();
+        if (display)
+            Gtk.IconTheme.get_for_display(display).add_search_path(`${this.path}/icons`);
+
         window.set_default_size(720, 720);
         window.set_search_enabled(true);
 
@@ -106,7 +111,7 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
     _addCompetitionsPage(window) {
         const page = new Adw.PreferencesPage({
             title: _('Competitions'),
-            iconName: 'applications-games-symbolic',
+            iconName: 'gnomefootball-symbolic',
         });
         window.add(page);
 

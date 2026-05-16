@@ -37,6 +37,7 @@ cp stylesheet.css "${STAGE_DIR}/"
 cp -r lib "${STAGE_DIR}/"
 cp -r schemas "${STAGE_DIR}/"
 cp -r locale "${STAGE_DIR}/"
+cp -r icons "${STAGE_DIR}/"
 
 echo "==> Creating ZIP"
 ( cd "${STAGE_DIR}" && zip -qr "${OUT_ZIP}" . )
