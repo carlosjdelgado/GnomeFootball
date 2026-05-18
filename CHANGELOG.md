@@ -19,6 +19,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   score drops), a follow-up notification fires with the original scorer
   and the corrected score. Gated by the existing `event-goal` toggle —
   no extra switch.
+- 13 new competitions and 5 new catalog groups:
+  - **Brazil**: Brasileirão Série A, Brasileirão Série B, Copa do Brasil.
+  - **Argentina**: Liga Profesional, Copa Argentina.
+  - **United States**: Major League Soccer, US Open Cup.
+  - **CONMEBOL**: Copa Libertadores, Copa Sudamericana, Recopa
+    Sudamericana (club competitions only).
+  - **CONCACAF**: CONCACAF Champions Cup, Leagues Cup
+    *(conditional — only visible during its summer window)*.
+  - **FIFA**: Club World Cup added alongside the World Cup, both
+    conditional.
+
+### Changed
+
+- Preferences "Competitions" page reworked so it no longer overwhelms with
+  the larger catalog. Each country/federation is now a collapsible row
+  with an `X/Y enabled` subtitle counter; the league subscription, mode
+  switch ("Specific teams only") and the team list are folded into a
+  single nested row so subscribing to a few teams takes fewer clicks.
+
+### Fixed
+
+- Preferences chevrons of nested `AdwExpanderRow` rows (e.g. team
+  selectors) no longer get stuck pointing up and tinted with the accent
+  colour when their parent row is expanded. This was already present in
+  1.0.0 — a libadwaita CSS specificity issue that propagated the parent's
+  `:checked` styling down to descendant chevrons. Worked around with a
+  scoped CSS override that re-asserts the collapsed state on nested rows.
+- Preferences chevrons are now hidden entirely on rows whose expansion is
+  locked (e.g. an unsubscribed league), removing a misleading affordance.
 
 ## [1.0.0] - 2026-05-17
 

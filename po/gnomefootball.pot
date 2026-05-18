@@ -1,194 +1,278 @@
-# GnomeFootball — translation template.
-# Copyright (C) 2026
-# This file is distributed under the same license as the GnomeFootball extension.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gnomefootball 0.1\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-16 00:00+0000\n"
-"PO-Revision-Date: 2026-05-16 00:00+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"POT-Creation-Date: 2026-05-18 16:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Notification strings (lib/notifier.js)
-msgid "Home"
-msgstr ""
-
-msgid "Away"
-msgstr ""
-
-msgid "Kick-off"
-msgstr ""
-
-msgid "GOAL"
-msgstr ""
-
-msgid "Yellow card"
-msgstr ""
-
-msgid "Red card"
-msgstr ""
-
-msgid "Substitution"
-msgstr ""
-
-msgid "%(in)s replaces %(out)s"
-msgstr ""
-
-msgid "Goal disallowed"
-msgstr ""
-
-msgid "Half-time"
-msgstr ""
-
-msgid "Second half"
-msgstr ""
-
-msgid "Full-time"
-msgstr ""
-
-msgid "Extra time"
-msgstr ""
-
-msgid "Penalty shootout"
-msgstr ""
-
-msgid "Match update"
-msgstr ""
-
-#. Preferences — country group titles
+#: prefs.js:35
 msgid "Spain"
 msgstr ""
 
+#: prefs.js:36
 msgid "England"
 msgstr ""
 
+#: prefs.js:37
 msgid "Italy"
 msgstr ""
 
+#: prefs.js:38
 msgid "France"
 msgstr ""
 
+#: prefs.js:39
 msgid "Portugal"
 msgstr ""
 
+#: prefs.js:40
 msgid "Germany"
 msgstr ""
 
+#: prefs.js:41
+msgid "Brazil"
+msgstr ""
+
+#: prefs.js:42
+msgid "Argentina"
+msgstr ""
+
+#: prefs.js:43
+msgid "United States"
+msgstr ""
+
+#: prefs.js:44
 msgid "UEFA"
 msgstr ""
 
+#: prefs.js:45
+msgid "CONMEBOL"
+msgstr ""
+
+#: prefs.js:46
+msgid "CONCACAF"
+msgstr ""
+
+#: prefs.js:47
 msgid "FIFA"
 msgstr ""
 
-#. Preferences — event labels
+#: prefs.js:54
 msgid "Match start (kick-off)"
 msgstr ""
 
+#: prefs.js:55
 msgid "Goal"
 msgstr ""
 
+#: prefs.js:56 lib/notifier.js:153
+msgid "Yellow card"
+msgstr ""
+
+#: prefs.js:57 lib/notifier.js:163
+msgid "Red card"
+msgstr ""
+
+#: prefs.js:58 lib/notifier.js:141
+msgid "Substitution"
+msgstr ""
+
+#: prefs.js:59
 msgid "First half ends"
 msgstr ""
 
+#: prefs.js:60
 msgid "Second half starts"
 msgstr ""
 
-#. Preferences — pages and groups
+#: prefs.js:61 lib/notifier.js:185
+msgid "Full-time"
+msgstr ""
+
+#: prefs.js:62 lib/notifier.js:191
+msgid "Extra time"
+msgstr ""
+
+#: prefs.js:63 lib/notifier.js:197
+msgid "Penalty shootout"
+msgstr ""
+
+#: prefs.js:158 prefs.js:194
 msgid "Competitions"
 msgstr ""
 
+#: prefs.js:165
 msgid "Catalog"
 msgstr ""
 
-msgid "Leagues and teams are loaded from a public sports data source and cached locally."
+#: prefs.js:166
+msgid ""
+"Leagues and teams are loaded from a public sports data source and cached "
+"locally."
 msgstr ""
 
+#: prefs.js:175
 msgid "Refresh now"
 msgstr ""
 
-msgid "Notify for"
-msgstr ""
-
-msgid "All matches"
-msgstr ""
-
-msgid "Specific teams only"
-msgstr ""
-
-msgid "Teams"
-msgstr ""
-
-msgid "Select teams"
-msgstr ""
-
-msgid "Teams will appear once the catalog has loaded."
-msgstr ""
-
+#: prefs.js:202 prefs.js:218 prefs.js:314
 msgid "Off"
 msgstr ""
 
+#: prefs.js:219
+msgid "enabled"
+msgstr ""
+
+#: prefs.js:258
+msgid "Specific teams only"
+msgstr ""
+
+#: prefs.js:259
+msgid "Notify only for matches involving selected teams"
+msgstr ""
+
+#: prefs.js:266
+msgid "Teams"
+msgstr ""
+
+#: prefs.js:269
+msgid "Select teams"
+msgstr ""
+
+#: prefs.js:273 prefs.js:362
+msgid "Teams will appear once the catalog has loaded."
+msgstr ""
+
+#: prefs.js:317
+msgid "All matches"
+msgstr ""
+
+#: prefs.js:321
 msgid "1 team selected"
 msgstr ""
 
+#: prefs.js:322
 msgid "teams selected"
 msgstr ""
 
+#: prefs.js:401
 msgid "Events"
 msgstr ""
 
+#: prefs.js:407
 msgid "Notification types"
 msgstr ""
 
+#: prefs.js:408
 msgid "Choose which match events trigger a notification."
 msgstr ""
 
+#: prefs.js:427
 msgid "General"
 msgstr ""
 
+#: prefs.js:433
 msgid "Polling"
 msgstr ""
 
-msgid "How often to check for match updates. Lower values catch events sooner but use more bandwidth."
+#: prefs.js:434
+msgid ""
+"How often to check for match updates. Lower values catch events sooner but "
+"use more bandwidth."
 msgstr ""
 
+#: prefs.js:446
 msgid "Polling interval (minutes)"
 msgstr ""
 
+#: prefs.js:447
 msgid "Range: 1-30 minutes"
 msgstr ""
 
+#: prefs.js:454
 msgid "Actions"
 msgstr ""
 
+#: prefs.js:459
 msgid "Force a check now"
 msgstr ""
 
+#: prefs.js:460
 msgid "Asks the background poller to refresh match data immediately."
 msgstr ""
 
+#: prefs.js:463
 msgid "Check now"
 msgstr ""
 
+#: prefs.js:480
 msgid "Catalog not loaded yet"
 msgstr ""
 
+#: prefs.js:481
 msgid "Catalog loaded"
 msgstr ""
 
+#: prefs.js:487
 msgid "Press \"Refresh now\" to load leagues and teams."
 msgstr ""
 
+#: prefs.js:492 prefs.js:493
 msgid "Last refreshed"
 msgstr ""
 
+#: prefs.js:493
 msgid "refresh recommended"
 msgstr ""
 
+#: prefs.js:512
 msgid "Refreshing…"
+msgstr ""
+
+#: lib/notifier.js:101
+msgid "Home"
+msgstr ""
+
+#: lib/notifier.js:102
+msgid "Away"
+msgstr ""
+
+#: lib/notifier.js:112
+msgid "Kick-off"
+msgstr ""
+
+#: lib/notifier.js:118
+msgid "GOAL"
+msgstr ""
+
+#: lib/notifier.js:128
+msgid "Goal disallowed"
+msgstr ""
+
+#: lib/notifier.js:137
+msgid "%(in)s replaces %(out)s"
+msgstr ""
+
+#: lib/notifier.js:173
+msgid "Half-time"
+msgstr ""
+
+#: lib/notifier.js:179
+msgid "Second half"
+msgstr ""
+
+#: lib/notifier.js:203
+msgid "Match update"
 msgstr ""

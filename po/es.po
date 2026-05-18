@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnomefootball 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-16 00:00+0000\n"
+"POT-Creation-Date: 2026-05-18 16:22+0200\n"
 "PO-Revision-Date: 2026-05-16 00:00+0000\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -12,176 +12,271 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Home"
-msgstr "Local"
-
-msgid "Away"
-msgstr "Visitante"
-
-msgid "Kick-off"
-msgstr "Inicio del partido"
-
-msgid "GOAL"
-msgstr "¡GOL!"
-
-msgid "Yellow card"
-msgstr "Tarjeta amarilla"
-
-msgid "Red card"
-msgstr "Tarjeta roja"
-
-msgid "Substitution"
-msgstr "Sustitución"
-
-msgid "%(in)s replaces %(out)s"
-msgstr "%(in)s reemplaza a %(out)s"
-
-msgid "Goal disallowed"
-msgstr "Gol anulado"
-
-msgid "Half-time"
-msgstr "Descanso"
-
-msgid "Second half"
-msgstr "Segundo tiempo"
-
-msgid "Full-time"
-msgstr "Final del partido"
-
-msgid "Extra time"
-msgstr "Prórroga"
-
-msgid "Penalty shootout"
-msgstr "Tanda de penaltis"
-
-msgid "Match update"
-msgstr "Actualización del partido"
-
+#: prefs.js:35
 msgid "Spain"
 msgstr "España"
 
+#: prefs.js:36
 msgid "England"
 msgstr "Inglaterra"
 
+#: prefs.js:37
 msgid "Italy"
 msgstr "Italia"
 
+#: prefs.js:38
 msgid "France"
 msgstr "Francia"
 
+#: prefs.js:39
 msgid "Portugal"
 msgstr "Portugal"
 
+#: prefs.js:40
 msgid "Germany"
 msgstr "Alemania"
 
+#: prefs.js:41
+msgid "Brazil"
+msgstr "Brasil"
+
+#: prefs.js:42
+msgid "Argentina"
+msgstr "Argentina"
+
+#: prefs.js:43
+msgid "United States"
+msgstr "Estados Unidos"
+
+#: prefs.js:44
 msgid "UEFA"
 msgstr "UEFA"
 
+#: prefs.js:45
+msgid "CONMEBOL"
+msgstr "CONMEBOL"
+
+#: prefs.js:46
+msgid "CONCACAF"
+msgstr "CONCACAF"
+
+#: prefs.js:47
 msgid "FIFA"
 msgstr "FIFA"
 
+#: prefs.js:54
 msgid "Match start (kick-off)"
 msgstr "Inicio del partido"
 
+#: prefs.js:55
 msgid "Goal"
 msgstr "Gol"
 
+#: prefs.js:56 lib/notifier.js:153
+msgid "Yellow card"
+msgstr "Tarjeta amarilla"
+
+#: prefs.js:57 lib/notifier.js:163
+msgid "Red card"
+msgstr "Tarjeta roja"
+
+#: prefs.js:58 lib/notifier.js:141
+msgid "Substitution"
+msgstr "Sustitución"
+
+#: prefs.js:59
 msgid "First half ends"
 msgstr "Fin del primer tiempo"
 
+#: prefs.js:60
 msgid "Second half starts"
 msgstr "Inicio del segundo tiempo"
 
+#: prefs.js:61 lib/notifier.js:185
+msgid "Full-time"
+msgstr "Final del partido"
+
+#: prefs.js:62 lib/notifier.js:191
+msgid "Extra time"
+msgstr "Prórroga"
+
+#: prefs.js:63 lib/notifier.js:197
+msgid "Penalty shootout"
+msgstr "Tanda de penaltis"
+
+#: prefs.js:158 prefs.js:194
 msgid "Competitions"
 msgstr "Competiciones"
 
+#: prefs.js:165
 msgid "Catalog"
 msgstr "Catálogo"
 
-msgid "Leagues and teams are loaded from a public sports data source and cached locally."
-msgstr "Las ligas y equipos se cargan desde una fuente pública de datos deportivos y se guardan en caché local."
+#: prefs.js:166
+msgid ""
+"Leagues and teams are loaded from a public sports data source and cached "
+"locally."
+msgstr ""
+"Las ligas y equipos se cargan desde una fuente pública de datos deportivos y "
+"se guardan en caché local."
 
+#: prefs.js:175
 msgid "Refresh now"
 msgstr "Actualizar ahora"
 
-msgid "Notify for"
-msgstr "Notificar"
-
-msgid "All matches"
-msgstr "Todos los partidos"
-
-msgid "Specific teams only"
-msgstr "Solo equipos seleccionados"
-
-msgid "Teams"
-msgstr "Equipos"
-
-msgid "Select teams"
-msgstr "Seleccionar equipos"
-
-msgid "Teams will appear once the catalog has loaded."
-msgstr "Los equipos aparecerán cuando se cargue el catálogo."
-
+#: prefs.js:202 prefs.js:218 prefs.js:314
 msgid "Off"
 msgstr "Desactivado"
 
+#: prefs.js:219
+msgid "enabled"
+msgstr "activadas"
+
+#: prefs.js:258
+msgid "Specific teams only"
+msgstr "Solo equipos seleccionados"
+
+#: prefs.js:259
+msgid "Notify only for matches involving selected teams"
+msgstr "Notificar solo los partidos en los que jueguen equipos seleccionados"
+
+#: prefs.js:266
+msgid "Teams"
+msgstr "Equipos"
+
+#: prefs.js:269
+msgid "Select teams"
+msgstr "Seleccionar equipos"
+
+#: prefs.js:273 prefs.js:362
+msgid "Teams will appear once the catalog has loaded."
+msgstr "Los equipos aparecerán cuando se cargue el catálogo."
+
+#: prefs.js:317
+msgid "All matches"
+msgstr "Todos los partidos"
+
+#: prefs.js:321
 msgid "1 team selected"
 msgstr "1 equipo seleccionado"
 
+#: prefs.js:322
 msgid "teams selected"
 msgstr "equipos seleccionados"
 
+#: prefs.js:401
 msgid "Events"
 msgstr "Eventos"
 
+#: prefs.js:407
 msgid "Notification types"
 msgstr "Tipos de notificación"
 
+#: prefs.js:408
 msgid "Choose which match events trigger a notification."
 msgstr "Elige qué eventos del partido disparan una notificación."
 
+#: prefs.js:427
 msgid "General"
 msgstr "General"
 
+#: prefs.js:433
 msgid "Polling"
 msgstr "Sondeo"
 
-msgid "How often to check for match updates. Lower values catch events sooner but use more bandwidth."
-msgstr "Cada cuánto consultar actualizaciones de los partidos. Valores menores detectan eventos antes pero usan más ancho de banda."
+#: prefs.js:434
+msgid ""
+"How often to check for match updates. Lower values catch events sooner but "
+"use more bandwidth."
+msgstr ""
+"Cada cuánto consultar actualizaciones de los partidos. Valores menores "
+"detectan eventos antes pero usan más ancho de banda."
 
+#: prefs.js:446
 msgid "Polling interval (minutes)"
 msgstr "Intervalo de sondeo (minutos)"
 
+#: prefs.js:447
 msgid "Range: 1-30 minutes"
 msgstr "Rango: 1-30 minutos"
 
+#: prefs.js:454
 msgid "Actions"
 msgstr "Acciones"
 
+#: prefs.js:459
 msgid "Force a check now"
 msgstr "Forzar una comprobación"
 
+#: prefs.js:460
 msgid "Asks the background poller to refresh match data immediately."
-msgstr "Pide al sondeo en segundo plano que actualice los datos de los partidos de inmediato."
+msgstr ""
+"Pide al sondeo en segundo plano que actualice los datos de los partidos de "
+"inmediato."
 
+#: prefs.js:463
 msgid "Check now"
 msgstr "Comprobar ahora"
 
+#: prefs.js:480
 msgid "Catalog not loaded yet"
 msgstr "Catálogo aún no cargado"
 
+#: prefs.js:481
 msgid "Catalog loaded"
 msgstr "Catálogo cargado"
 
+#: prefs.js:487
 msgid "Press \"Refresh now\" to load leagues and teams."
 msgstr "Pulsa «Actualizar ahora» para cargar las ligas y equipos."
 
+#: prefs.js:492 prefs.js:493
 msgid "Last refreshed"
 msgstr "Última actualización"
 
+#: prefs.js:493
 msgid "refresh recommended"
 msgstr "se recomienda actualizar"
 
+#: prefs.js:512
 msgid "Refreshing…"
 msgstr "Actualizando…"
+
+#: lib/notifier.js:101
+msgid "Home"
+msgstr "Local"
+
+#: lib/notifier.js:102
+msgid "Away"
+msgstr "Visitante"
+
+#: lib/notifier.js:112
+msgid "Kick-off"
+msgstr "Inicio del partido"
+
+#: lib/notifier.js:118
+msgid "GOAL"
+msgstr "¡GOL!"
+
+#: lib/notifier.js:128
+msgid "Goal disallowed"
+msgstr "Gol anulado"
+
+#: lib/notifier.js:137
+msgid "%(in)s replaces %(out)s"
+msgstr "%(in)s reemplaza a %(out)s"
+
+#: lib/notifier.js:173
+msgid "Half-time"
+msgstr "Descanso"
+
+#: lib/notifier.js:179
+msgid "Second half"
+msgstr "Segundo tiempo"
+
+#: lib/notifier.js:203
+msgid "Match update"
+msgstr "Actualización del partido"
+
+#~ msgid "Notify for"
+#~ msgstr "Notificar"

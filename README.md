@@ -31,9 +31,9 @@ GNOME Extensions preferences window.
   - **All matches** in a league.
   - **Specific teams** — receive only matches that include any of the teams you
     pick.
-- 28 leagues and cups across Spain, England, Italy, France, Portugal, Germany,
-  UEFA and FIFA. Team rosters are discovered live from the upstream API and
-  cached for 7 days.
+- 42 leagues and cups across Spain, England, Italy, France, Portugal, Germany,
+  Brazil, Argentina, United States, UEFA, CONMEBOL, CONCACAF and FIFA. Team
+  rosters are discovered live from the upstream API and cached for 7 days.
 - Crest icons on notifications, with on-disk caching.
 - Cold-start protection: if the extension wakes up while a match is already in
   progress, past events are absorbed silently instead of spamming you with
