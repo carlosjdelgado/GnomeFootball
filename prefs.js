@@ -50,6 +50,7 @@ function eventLabel(eventType) {
         case EVENT_TYPE.GOAL:              return _('Goal');
         case EVENT_TYPE.YELLOW_CARD:       return _('Yellow card');
         case EVENT_TYPE.RED_CARD:          return _('Red card');
+        case EVENT_TYPE.SUBSTITUTION:      return _('Substitution');
         case EVENT_TYPE.HALF_TIME_END:     return _('First half ends');
         case EVENT_TYPE.SECOND_HALF_START: return _('Second half starts');
         case EVENT_TYPE.MATCH_END:         return _('Full-time');

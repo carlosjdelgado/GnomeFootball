@@ -34,6 +34,12 @@
       <description>Send a notification when a player receives a red card (direct or second yellow).</description>
     </key>
 
+    <key name="event-substitution" type="b">
+      <default>false</default>
+      <summary>Notify on substitution</summary>
+      <description>Send a notification for each substitution. Disabled by default to avoid noise — most matches have 6-10 substitutions per game.</description>
+    </key>
+
     <key name="event-half-time-end" type="b">
       <default>true</default>
       <summary>Notify on first half end</summary>

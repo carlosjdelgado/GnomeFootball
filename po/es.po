@@ -30,6 +30,15 @@ msgstr "Tarjeta amarilla"
 msgid "Red card"
 msgstr "Tarjeta roja"
 
+msgid "Substitution"
+msgstr "Sustitución"
+
+msgid "%(in)s replaces %(out)s"
+msgstr "%(in)s reemplaza a %(out)s"
+
+msgid "Goal disallowed"
+msgstr "Gol anulado"
+
 msgid "Half-time"
 msgstr "Descanso"
 

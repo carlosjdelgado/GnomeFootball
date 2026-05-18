@@ -30,6 +30,15 @@ msgstr "Carton jaune"
 msgid "Red card"
 msgstr "Carton rouge"
 
+msgid "Substitution"
+msgstr "Remplacement"
+
+msgid "%(in)s replaces %(out)s"
+msgstr "%(in)s remplace %(out)s"
+
+msgid "Goal disallowed"
+msgstr "But refusé"
+
 msgid "Half-time"
 msgstr "Mi-temps"
 

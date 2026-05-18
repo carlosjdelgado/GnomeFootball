@@ -1,0 +1,14 @@
+{
+  "plays": [
+    {
+      "id": "play-goal-vincancelled",
+      "type": { "id": "70", "text": "Goal" },
+      "team": { "id": "86" },
+      "athletesInvolved": [
+        { "displayName": "Kylian Mbappé" }
+      ],
+      "clock": { "displayValue": "27'", "value": 1620 },
+      "scoringPlay": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "plays": [
+    {
+      "id": "play-sub-001",
+      "type": { "id": "76", "text": "Substitution", "type": "substitution" },
+      "team": { "id": "86" },
+      "participants": [
+        { "athlete": { "displayName": "Endrick" } },
+        { "athlete": { "displayName": "Vinícius Júnior" } }
+      ],
+      "clock": { "displayValue": "38'", "value": 2280 },
+      "scoringPlay": false
+    }
+  ]
+}

@@ -330,6 +330,14 @@ Expected results:
   second-half start, red card, full-time).
 - `cold-start-mid-game`: 1 tick, **0 notifications** plus a log line
   `cold-start baseline ... — suppressing catch-up notifications`.
+- `substitution`: 3 ticks, 2 notifications (kickoff at tick 1, substitution
+  at tick 2). Requires `event-substitution` enabled.
+- `goal-disallowed`: 3 ticks, 3 notifications (kickoff + goal at tick 1,
+  goal disallowed at tick 2). Exercises the VAR-cancellation path: the
+  goal vanishes from `plays` and the team's score drops, so the detector
+  emits a `goal-disallowed` event with the original scorer and the
+  updated score. Gated by the regular `event-goal` toggle — there is no
+  separate switch.
 
 To add a new fixture set, drop JSON files under
 `test-fixtures/<name>/test.1/` named `scoreboard-NNN.json` and (optionally)

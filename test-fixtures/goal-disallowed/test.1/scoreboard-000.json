@@ -1,0 +1,55 @@
+{
+  "leagues": [
+    {
+      "id": "15",
+      "name": "Test League",
+      "logos": [
+        { "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/15.png" }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "test-401234569",
+      "date": "2026-05-18T19:00:00Z",
+      "status": {
+        "period": 0,
+        "type": {
+          "id": "1",
+          "state": "pre",
+          "description": "Scheduled",
+          "detail": "Mon, May 18 at 7:00 PM",
+          "shortDetail": "Mon 7:00 PM"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "86",
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "displayName": "Real Madrid",
+                "shortDisplayName": "Madrid",
+                "abbreviation": "RMA",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png"
+              }
+            },
+            {
+              "id": "83",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "displayName": "FC Barcelona",
+                "shortDisplayName": "Barcelona",
+                "abbreviation": "FCB",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "leagues": [
+    {
+      "id": "15",
+      "name": "Test League",
+      "logos": [
+        { "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/15.png" }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "test-401234568",
+      "date": "2026-05-18T19:00:00Z",
+      "status": {
+        "period": 1,
+        "type": {
+          "id": "2",
+          "state": "in",
+          "description": "First Half",
+          "detail": "23'",
+          "shortDetail": "23'"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "86",
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "displayName": "Real Madrid",
+                "shortDisplayName": "Madrid",
+                "abbreviation": "RMA",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png"
+              }
+            },
+            {
+              "id": "83",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "displayName": "FC Barcelona",
+                "shortDisplayName": "Barcelona",
+                "abbreviation": "FCB",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

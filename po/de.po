@@ -30,6 +30,15 @@ msgstr "Gelbe Karte"
 msgid "Red card"
 msgstr "Rote Karte"
 
+msgid "Substitution"
+msgstr "Auswechslung"
+
+msgid "%(in)s replaces %(out)s"
+msgstr "%(in)s ersetzt %(out)s"
+
+msgid "Goal disallowed"
+msgstr "Tor aberkannt"
+
 msgid "Half-time"
 msgstr "Halbzeit"
 
