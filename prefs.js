@@ -32,15 +32,20 @@ import {
 
 function countryLabel(id) {
     switch (id) {
-        case 'spain':    return _('Spain');
-        case 'england':  return _('England');
-        case 'italy':    return _('Italy');
-        case 'france':   return _('France');
-        case 'portugal': return _('Portugal');
-        case 'germany':  return _('Germany');
-        case 'uefa':     return _('UEFA');
-        case 'fifa':     return _('FIFA');
-        default:         return id;
+        case 'spain':     return _('Spain');
+        case 'england':   return _('England');
+        case 'italy':     return _('Italy');
+        case 'france':    return _('France');
+        case 'portugal':  return _('Portugal');
+        case 'germany':   return _('Germany');
+        case 'brazil':    return _('Brazil');
+        case 'argentina': return _('Argentina');
+        case 'usa':       return _('United States');
+        case 'uefa':      return _('UEFA');
+        case 'conmebol':  return _('CONMEBOL');
+        case 'concacaf':  return _('CONCACAF');
+        case 'fifa':      return _('FIFA');
+        default:          return id;
     }
 }
 
@@ -93,8 +98,10 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
         this._settings = this.getSettings();
 
         const display = Gdk.Display.get_default();
-        if (display)
+        if (display) {
             Gtk.IconTheme.get_for_display(display).add_search_path(`${this.path}/icons`);
+            this._installNestedExpanderCssFix(display);
+        }
 
         window.set_default_size(720, 720);
         window.set_search_enabled(true);
@@ -116,6 +123,32 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
             this._countryGroups = null;
             return false;
         });
+    }
+
+    // libadwaita styles the chevron of any descendant `.expander-row-arrow`
+    // when the outer expander is `:checked`, regardless of whether the inner
+    // expander is checked. Result: nested rows show an accent-coloured up
+    // chevron even when collapsed. This override scopes the rotation/color to
+    // direct-state expanders so nested rows render their own state correctly.
+    _installNestedExpanderCssFix(display) {
+        if (GnomeFootballPreferences._cssFixInstalled)
+            return;
+        const provider = new Gtk.CssProvider();
+        provider.load_from_string(`
+            row.expander row.expander:not(:checked) image.expander-row-arrow {
+                -gtk-icon-transform: rotate(0.5turn);
+                color: inherit;
+            }
+            row.expander image.expander-row-arrow:disabled {
+                opacity: 0;
+            }
+        `);
+        Gtk.StyleContext.add_provider_for_display(
+            display,
+            provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
+        GnomeFootballPreferences._cssFixInstalled = true;
     }
 
     // ----- Page 1: Competitions ---------------------------------------------
@@ -148,25 +181,60 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
         actionsGroup.add(this._statusRow);
 
         this._competitionsPage = page;
-        this._countryGroups = new Map(); // countryId -> { group, leagueRows: Map<slug, row> }
+        // countryId -> { countryExpander, leagueRows: Map<slug, row> }
+        this._countryGroups = new Map();
         this._buildCountryGroups(page);
         this._refreshCompetitionsUI();
     }
 
     _buildCountryGroups(page) {
-        for (const country of COUNTRY_GROUPS) {
-            const group = new Adw.PreferencesGroup({
-                title: countryLabel(country.id),
-            });
-            page.add(group);
-            const leagueRows = new Map();
+        // One umbrella group with collapsible per-country rows. Keeps the page
+        // short even with the full catalog visible.
+        const group = new Adw.PreferencesGroup({
+            title: _('Competitions'),
+        });
+        page.add(group);
+        this._competitionsGroup = group;
 
+        for (const country of COUNTRY_GROUPS) {
+            const countryExpander = new Adw.ExpanderRow({
+                title: countryLabel(country.id),
+                subtitle: _('Off'),
+            });
+            group.add(countryExpander);
+
+            const leagueRows = new Map();
             for (const leagueDef of country.leagues) {
                 const row = this._buildLeagueRow(leagueDef);
-                group.add(row.widget);
+                countryExpander.add_row(row.widget);
                 leagueRows.set(leagueDef.slug, row);
             }
-            this._countryGroups.set(country.id, { group, leagueRows });
+            this._countryGroups.set(country.id, { countryExpander, leagueRows });
+        }
+    }
+
+    _countrySubtitle(enabled, total) {
+        if (enabled === 0)
+            return _('Off');
+        return `${enabled}/${total} ${_('enabled')}`;
+    }
+
+    _refreshCountrySubtitles() {
+        const subs = readSubscriptions(this._settings);
+        const catalog = readCatalog(this._settings);
+        for (const country of COUNTRY_GROUPS) {
+            const entry = this._countryGroups.get(country.id);
+            if (!entry) continue;
+            let visibleCount = 0;
+            let enabledCount = 0;
+            for (const leagueDef of country.leagues) {
+                const leagueData = catalog[leagueDef.slug];
+                const hidden = leagueDef.conditional &&
+                    (!leagueData || leagueData.available === false);
+                if (!hidden) visibleCount++;
+                if (isSubscribed(subs, leagueDef.slug)) enabledCount++;
+            }
+            entry.countryExpander.set_subtitle(this._countrySubtitle(enabledCount, visibleCount));
         }
     }
 
@@ -183,30 +251,22 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
             expanded: false,
         });
 
-        // ComboRow for subscription mode.
-        const modeList = new Gtk.StringList();
-        modeList.append(_('All matches'));
-        modeList.append(_('Specific teams only'));
-        const modeRow = new Adw.ComboRow({
-            title: _('Notify for'),
-            model: modeList,
-            selected: getMode(subs, slug) === SUBSCRIPTION_MODE.TEAMS ? 1 : 0,
-        });
-        expander.add_row(modeRow);
-
-        // Team list group (built lazily when expander is opened).
-        const teamsGroup = new Adw.PreferencesGroup({
-            title: _('Teams'),
-        });
-        const teamsContainer = new Adw.ExpanderRow({
-            title: _('Select teams'),
-            visible: getMode(subs, slug) === SUBSCRIPTION_MODE.TEAMS,
+        // Combined mode-switch + teams-container. The switch (showEnableSwitch)
+        // toggles "specific teams only" mode; when ON, the row's expansion
+        // reveals the team list directly underneath without an extra header
+        // row. The chevron is hidden via CSS when the switch is OFF.
+        const modeRow = new Adw.ExpanderRow({
+            title: _('Specific teams only'),
+            subtitle: _('Notify only for matches involving selected teams'),
+            showEnableSwitch: true,
+            enableExpansion: getMode(subs, slug) === SUBSCRIPTION_MODE.TEAMS,
+            expanded: false,
         });
         const placeholderRow = new Adw.ActionRow({
             title: _('Teams will appear once the catalog has loaded.'),
         });
-        teamsContainer.add_row(placeholderRow);
-        expander.add_row(teamsContainer);
+        modeRow.add_row(placeholderRow);
+        expander.add_row(modeRow);
 
         // Wire signals.
         expander.connect('notify::enable-expansion', () => {
@@ -218,15 +278,17 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
             }
             writeSubscriptions(this._settings, subsNow);
             expander.set_subtitle(this._leagueSubtitle(slug, subsNow));
+            this._refreshCountrySubtitles();
         });
 
-        modeRow.connect('notify::selected', () => {
+        modeRow.connect('notify::enable-expansion', () => {
             const subsNow = readSubscriptions(this._settings);
             const entry = subsNow[slug] ?? { mode: SUBSCRIPTION_MODE.ALL, teams: [] };
-            entry.mode = modeRow.selected === 1 ? SUBSCRIPTION_MODE.TEAMS : SUBSCRIPTION_MODE.ALL;
+            entry.mode = modeRow.enableExpansion
+                ? SUBSCRIPTION_MODE.TEAMS
+                : SUBSCRIPTION_MODE.ALL;
             subsNow[slug] = entry;
             writeSubscriptions(this._settings, subsNow);
-            teamsContainer.visible = entry.mode === SUBSCRIPTION_MODE.TEAMS;
             expander.set_subtitle(this._leagueSubtitle(slug, subsNow));
         });
 
@@ -235,7 +297,6 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
             slug,
             expander,
             modeRow,
-            teamsContainer,
             placeholderRow,
             teamSwitches: new Map(),
         };
@@ -263,6 +324,7 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
             if (!entry) continue;
 
             let visibleCount = 0;
+            let enabledCount = 0;
             for (const leagueDef of country.leagues) {
                 const row = entry.leagueRows.get(leagueDef.slug);
                 if (!row) continue;
@@ -271,10 +333,12 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
                     leagueDef.conditional && (!leagueData || leagueData.available === false);
                 row.widget.visible = !isConditionalHidden;
                 if (!isConditionalHidden) visibleCount++;
+                if (isSubscribed(subs, leagueDef.slug)) enabledCount++;
                 this._populateTeams(row, leagueData?.teams ?? [], subs);
                 row.widget.set_subtitle(this._leagueSubtitle(leagueDef.slug, subs));
             }
-            entry.group.visible = visibleCount > 0;
+            entry.countryExpander.visible = visibleCount > 0;
+            entry.countryExpander.set_subtitle(this._countrySubtitle(enabledCount, visibleCount));
         }
 
         this._statusRow.title = this._catalogStatusTitle();
@@ -282,9 +346,9 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
     }
 
     _populateTeams(row, teams, subs) {
-        // Remove old rows from teamsContainer (except the placeholder we will rebuild).
+        // Remove old team switches from modeRow (placeholder stays).
         for (const [, switchRow] of row.teamSwitches)
-            row.teamsContainer.remove(switchRow);
+            row.modeRow.remove(switchRow);
         row.teamSwitches.clear();
 
         if (teams.length === 0) {
@@ -318,7 +382,7 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
                 writeSubscriptions(this._settings, subsNow);
                 row.expander.set_subtitle(this._leagueSubtitle(row.slug, subsNow));
             });
-            row.teamsContainer.add_row(switchRow);
+            row.modeRow.add_row(switchRow);
             row.teamSwitches.set(team.id, switchRow);
         }
     }
