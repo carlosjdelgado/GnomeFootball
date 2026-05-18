@@ -14,6 +14,7 @@ GNOME Extensions preferences window.
 - **Language:** GJS (GNOME JavaScript), ES modules
 - **UI toolkit (prefs):** libadwaita 1.4+
 - **License:** [GPL-2.0-or-later](LICENSE)
+- **Changelog:** [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
