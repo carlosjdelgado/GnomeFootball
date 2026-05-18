@@ -9,7 +9,7 @@ Data comes from a public soccer data API. Configuration lives in the standard
 GNOME Extensions preferences window.
 
 - **UUID:** `gnomefootball@carlosjdelgado`
-- **Version:** 1.0.0
+- **Version:** 1.1.0
 - **GNOME Shell:** 48, 49, 50
 - **Language:** GJS (GNOME JavaScript), ES modules
 - **UI toolkit (prefs):** libadwaita 1.4+
@@ -21,6 +21,11 @@ GNOME Extensions preferences window.
 
 - One notification per real event: kickoff, goals, yellow/red cards, half-time,
   second-half start, full-time, extra time, penalty shootout.
+- VAR goal-disallowed: when a previously-notified goal is overturned, you get
+  a follow-up notification with the original scorer and the corrected score.
+  Gated by the regular goal toggle — no extra switch.
+- Substitutions (opt-in): off by default; enable in preferences to receive a
+  notification each time a player swap happens.
 - Per-competition subscriptions, with two modes:
   - **All matches** in a league.
   - **Specific teams** — receive only matches that include any of the teams you
@@ -240,6 +245,7 @@ footprint small without missing the kickoff transition.
 | `event-goal` | `b` | `true` | Notify on goal |
 | `event-yellow-card` | `b` | `true` | Notify on yellow card |
 | `event-red-card` | `b` | `true` | Notify on red / second-yellow card |
+| `event-substitution` | `b` | `false` | Notify on player substitutions (opt-in) |
 | `event-half-time-end` | `b` | `true` | Notify at HT |
 | `event-second-half-start` | `b` | `true` | Notify when the 2nd half starts |
 | `event-match-end` | `b` | `true` | Notify at full time |
