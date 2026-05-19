@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnomefootball 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-18 16:22+0200\n"
+"POT-Creation-Date: 2026-05-19 14:00+0200\n"
 "PO-Revision-Date: 2026-05-16 00:00+0000\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -104,7 +104,7 @@ msgstr "Prolongation"
 msgid "Penalty shootout"
 msgstr "Tirs au but"
 
-#: prefs.js:158 prefs.js:194
+#: prefs.js:158 prefs.js:199
 msgid "Competitions"
 msgstr "Compétitions"
 
@@ -124,67 +124,59 @@ msgstr ""
 msgid "Refresh now"
 msgstr "Actualiser maintenant"
 
-#: prefs.js:202 prefs.js:218 prefs.js:314
+#: prefs.js:207 prefs.js:223 prefs.js:312
 msgid "Off"
 msgstr "Désactivé"
 
-#: prefs.js:219
+#: prefs.js:224
 msgid "enabled"
 msgstr "activées"
 
-#: prefs.js:258
+#: prefs.js:264
 msgid "Specific teams only"
 msgstr "Uniquement certaines équipes"
 
-#: prefs.js:259
+#: prefs.js:265
 msgid "Notify only for matches involving selected teams"
 msgstr "Notifier uniquement les matchs impliquant les équipes sélectionnées"
 
-#: prefs.js:266
-msgid "Teams"
-msgstr "Équipes"
-
-#: prefs.js:269
-msgid "Select teams"
-msgstr "Sélectionner des équipes"
-
-#: prefs.js:273 prefs.js:362
+#: prefs.js:271 prefs.js:360
 msgid "Teams will appear once the catalog has loaded."
 msgstr "Les équipes apparaîtront une fois le catalogue chargé."
 
-#: prefs.js:317
+#: prefs.js:315
 msgid "All matches"
 msgstr "Tous les matchs"
 
-#: prefs.js:321
+#: prefs.js:319
 msgid "1 team selected"
 msgstr "1 équipe sélectionnée"
 
-#: prefs.js:322
+#: prefs.js:320
 msgid "teams selected"
 msgstr "équipes sélectionnées"
 
-#: prefs.js:401
+#: prefs.js:399
 msgid "Events"
 msgstr "Événements"
 
-#: prefs.js:407
+#: prefs.js:405
 msgid "Notification types"
 msgstr "Types de notification"
 
-#: prefs.js:408
+#: prefs.js:406
 msgid "Choose which match events trigger a notification."
 msgstr "Choisissez les événements du match qui déclenchent une notification."
 
-#: prefs.js:427
+#: prefs.js:425
 msgid "General"
 msgstr "Général"
 
-#: prefs.js:433
+#: prefs.js:431
 msgid "Polling"
 msgstr "Interrogation"
 
-#: prefs.js:434
+#: prefs.js:432
 msgid ""
 "How often to check for match updates. Lower values catch events sooner but "
 "use more bandwidth."
@@ -193,57 +185,61 @@ msgstr ""
 "basses détectent les événements plus tôt mais consomment plus de bande "
 "passante."
 
-#: prefs.js:446
+#: prefs.js:444
 msgid "Polling interval (minutes)"
 msgstr "Intervalle d'interrogation (minutes)"
 
-#: prefs.js:447
+#: prefs.js:445
 msgid "Range: 1-30 minutes"
 msgstr "Plage : 1-30 minutes"
 
-#: prefs.js:454
+#: prefs.js:452
 msgid "Actions"
 msgstr "Actions"
 
-#: prefs.js:459
+#: prefs.js:457
 msgid "Force a check now"
 msgstr "Forcer une vérification"
 
-#: prefs.js:460
+#: prefs.js:458
 msgid "Asks the background poller to refresh match data immediately."
 msgstr ""
 "Demande à l'interrogation en arrière-plan d'actualiser les données des "
 "matchs immédiatement."
 
-#: prefs.js:463
+#: prefs.js:461
 msgid "Check now"
 msgstr "Vérifier maintenant"
 
-#: prefs.js:480
+#: prefs.js:478
 msgid "Catalog not loaded yet"
 msgstr "Catalogue pas encore chargé"
 
-#: prefs.js:481
+#: prefs.js:479
 msgid "Catalog loaded"
 msgstr "Catalogue chargé"
 
-#: prefs.js:487
+#: prefs.js:485
 msgid "Press \"Refresh now\" to load leagues and teams."
 msgstr ""
 "Appuyez sur « Actualiser maintenant » pour charger les championnats et "
 "équipes."
 
-#: prefs.js:492 prefs.js:493
+#: prefs.js:490 prefs.js:491
 msgid "Last refreshed"
 msgstr "Dernière actualisation"
 
-#: prefs.js:493
+#: prefs.js:491
 msgid "refresh recommended"
 msgstr "actualisation recommandée"
 
-#: prefs.js:512
-msgid "Refreshing…"
-msgstr "Actualisation…"
+#: prefs.js:527
+msgid "Loading catalog…"
+msgstr "Chargement du catalogue…"
+
+#: prefs.js:528 prefs.js:539
+msgid "Fetching leagues and teams"
+msgstr "Récupération des championnats et équipes"
 
 #: lib/notifier.js:101
 msgid "Home"
@@ -280,6 +276,15 @@ msgstr "Seconde mi-temps"
 #: lib/notifier.js:203
 msgid "Match update"
 msgstr "Mise à jour du match"
+
+#~ msgid "Teams"
+#~ msgstr "Équipes"
+
+#~ msgid "Select teams"
+#~ msgstr "Sélectionner des équipes"
+
+#~ msgid "Refreshing…"
+#~ msgstr "Actualisation…"
 
 #~ msgid "Notify for"
 #~ msgstr "Notifier"

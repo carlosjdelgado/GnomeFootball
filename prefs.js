@@ -171,13 +171,43 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
             title: this._catalogStatusTitle(),
             subtitle: this._catalogStatusSubtitle(),
         });
-        const refreshButton = new Gtk.Button({
+        this._refreshButton = new Gtk.Button({
             label: _('Refresh now'),
             valign: Gtk.Align.CENTER,
         });
-        refreshButton.add_css_class('flat');
-        refreshButton.connect('clicked', () => this._onRefreshClicked(refreshButton));
-        this._statusRow.add_suffix(refreshButton);
+        this._refreshButton.add_css_class('flat');
+        this._refreshButton.connect('clicked', () => this._onRefreshClicked());
+        this._statusRow.add_suffix(this._refreshButton);
+        this._catalogProgressFraction = 0;
+        this._refreshProgress = new Gtk.DrawingArea({
+            content_width: 22,
+            content_height: 22,
+            valign: Gtk.Align.CENTER,
+            visible: false,
+        });
+        this._refreshProgress.set_draw_func((widget, cr, width, height) => {
+            const fraction = this._catalogProgressFraction;
+            const cx = width / 2;
+            const cy = height / 2;
+            const radius = Math.min(width, height) / 2 - 1.5;
+            const fg = widget.get_color();
+
+            cr.setLineWidth(2);
+            cr.setLineCap(1); // CAIRO_LINE_CAP_ROUND
+
+            cr.setSourceRGBA(fg.red, fg.green, fg.blue, 0.25);
+            cr.arc(cx, cy, radius, 0, 2 * Math.PI);
+            cr.stroke();
+
+            if (fraction > 0) {
+                cr.setSourceRGBA(fg.red, fg.green, fg.blue, 1.0);
+                const start = -Math.PI / 2;
+                const end = start + fraction * 2 * Math.PI;
+                cr.arc(cx, cy, radius, start, end);
+                cr.stroke();
+            }
+        });
+        this._statusRow.add_suffix(this._refreshProgress);
         actionsGroup.add(this._statusRow);
 
         this._competitionsPage = page;
@@ -491,26 +521,48 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
         if (Object.keys(catalog).length > 0 && isCatalogFresh(this._settings))
             return;
 
+        this._setCatalogRefreshing(true);
         try {
-            await ensureCatalog(this._settings, null);
+            await ensureCatalog(this._settings, null, p => this._setCatalogProgress(p.done, p.total));
             this._refreshCompetitionsUI();
         } catch (e) {
             console.warn(`[GnomeFootball] prefs: background catalog refresh failed: ${e.message}`);
+        } finally {
+            this._setCatalogRefreshing(false);
         }
     }
 
-    async _onRefreshClicked(button) {
-        button.sensitive = false;
-        const originalLabel = button.label;
-        button.label = _('Refreshing…');
+    async _onRefreshClicked() {
+        this._setCatalogRefreshing(true);
         try {
-            await refreshCatalog(this._settings, null);
+            await refreshCatalog(this._settings, null, p => this._setCatalogProgress(p.done, p.total));
             this._refreshCompetitionsUI();
         } catch (e) {
             console.warn(`[GnomeFootball] prefs: manual catalog refresh failed: ${e.message}`);
         } finally {
-            button.label = originalLabel;
-            button.sensitive = true;
+            this._setCatalogRefreshing(false);
         }
+    }
+
+    _setCatalogRefreshing(active) {
+        if (active) {
+            this._refreshButton.visible = false;
+            this._catalogProgressFraction = 0;
+            this._refreshProgress.queue_draw();
+            this._refreshProgress.visible = true;
+            this._statusRow.title = _('Loading catalog…');
+            this._statusRow.subtitle = _('Fetching leagues and teams');
+        } else {
+            this._refreshProgress.visible = false;
+            this._refreshButton.visible = true;
+            this._statusRow.title = this._catalogStatusTitle();
+            this._statusRow.subtitle = this._catalogStatusSubtitle();
+        }
+    }
+
+    _setCatalogProgress(done, total) {
+        this._catalogProgressFraction = total > 0 ? done / total : 0;
+        this._refreshProgress.queue_draw();
+        this._statusRow.subtitle = `${_('Fetching leagues and teams')} (${done} / ${total})`;
     }
 }

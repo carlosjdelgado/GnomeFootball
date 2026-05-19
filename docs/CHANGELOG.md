@@ -37,6 +37,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   with an `X/Y enabled` subtitle counter; the league subscription, mode
   switch ("Specific teams only") and the team list are folded into a
   single nested row so subscribing to a few teams takes fewer clicks.
+- Catalog refresh in preferences now shows a live progress indicator —
+  a spinner replaces the "Refresh now" button while loading, the status
+  row title becomes "Loading catalog…", and the subtitle counts leagues
+  as they arrive (`Fetching leagues and teams (12 / 42)`). The previous
+  silent refresh on prefs open made the window look frozen for the
+  ~30 seconds the upstream calls take.
 
 ### Fixed
 
