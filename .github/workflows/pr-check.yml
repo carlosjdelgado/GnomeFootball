@@ -1,0 +1,46 @@
+name: PR check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  package-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gettext \
+            libglib2.0-bin \
+            zip
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install shexli
+        run: pip install shexli
+
+      - name: Build extension package
+        run: bash package.sh
+
+      - name: Run shexli (human-readable)
+        run: shexli --format text build/gnomefootball@carlosjdelgado.shell-extension.zip
+
+      - name: Run shexli (gate on findings)
+        run: |
+          shexli --format json build/gnomefootball@carlosjdelgado.shell-extension.zip > shexli.json
+          status=$(jq -r '.summary.status' shexli.json)
+          count=$(jq -r '.summary.finding_count' shexli.json)
+          echo "shexli status=${status}, finding_count=${count}"
+          if [ "${status}" != "clean" ] || [ "${count}" != "0" ]; then
+            echo "::error::shexli reported ${count} finding(s); blocking merge."
+            jq '.findings' shexli.json
+            exit 1
+          fi

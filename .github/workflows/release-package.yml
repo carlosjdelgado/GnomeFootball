@@ -1,0 +1,58 @@
+name: Build release package
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gettext \
+            libglib2.0-bin \
+            zip
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install shexli
+        run: pip install shexli
+
+      - name: Build extension package
+        run: bash package.sh
+
+      - name: Verify package with shexli
+        run: |
+          shexli --format text build/gnomefootball@carlosjdelgado.shell-extension.zip
+          shexli --format json build/gnomefootball@carlosjdelgado.shell-extension.zip > shexli.json
+          status=$(jq -r '.summary.status' shexli.json)
+          count=$(jq -r '.summary.finding_count' shexli.json)
+          if [ "${status}" != "clean" ] || [ "${count}" != "0" ]; then
+            echo "::error::shexli reported ${count} finding(s) on main."
+            jq '.findings' shexli.json
+            exit 1
+          fi
+
+      - name: Read version from metadata.json
+        id: meta
+        run: |
+          version=$(jq -r '."version-name"' metadata.json)
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload extension ZIP as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gnomefootball-${{ steps.meta.outputs.version }}-${{ github.sha }}
+          path: build/gnomefootball@carlosjdelgado.shell-extension.zip
+          if-no-files-found: error
+          retention-days: 90
