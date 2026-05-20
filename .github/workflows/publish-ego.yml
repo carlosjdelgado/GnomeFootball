@@ -1,0 +1,29 @@
+name: Publish to extensions.gnome.org
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Package and upload to extensions.gnome.org
+        # murar8/gnome-extensions-action@0.1.1 pinned by commit SHA (third-party
+        # action that receives EGO credentials).
+        uses: murar8/gnome-extensions-action@1e6014212e6f79c8c6cdd6193025a158273b3293
+        with:
+          source-dir: .
+          extra-source: |
+            lib
+            icons
+            LICENSE
+          schema: schemas/org.gnome.shell.extensions.gnomefootball.gschema.xml
+          podir: po
+          gettext-domain: gnomefootball
+          username: ${{ secrets.GNOME_USERNAME }}
+          password: ${{ secrets.GNOME_PASSWORD }}
+          accept-tos: true
