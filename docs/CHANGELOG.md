@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - TBD
+
+### Changed
+
+- Replaced the JSON fixture replay harness with an interactive E2E test
+  runner (`tests/e2e/run.sh`). Fixture files placed under
+  `~/.local/share/gnomefootball/fixtures/<slug>/` are picked up
+  automatically by the extension (disk-first lookup in `sports-api.js`)
+  without any special mode being active. No user-facing changes.
+
 ## [1.1.0] - TBD
 
 ### Added
@@ -73,8 +83,9 @@ Initial release, published on [extensions.gnome.org](https://extensions.gnome.or
   silently instead of producing catch-up notifications.
 - Configurable polling interval (1–30 minutes, default 5).
 - Translations: English, Spanish, Portuguese, Italian, German, French.
-- Replay/test harness driven by JSON fixtures, no network required.
+- JSON fixture replay harness for development testing (replaced in 1.1.1).
 
-[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/carlosjdelgado/GnomeFootball/releases/tag/v1.0.0
