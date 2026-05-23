@@ -1,5 +1,7 @@
 # Gnome Football
 
+[![GNOME Extensions Downloads](https://img.shields.io/gnome-extensions/dt/gnomefootball@carlosjdelgado)](https://extensions.gnome.org/extension/10007/gnome-football/)
+
 A GNOME Shell extension that delivers native desktop notifications for football
 (soccer) matches. It runs quietly in the background — no panel indicator, no
 tray icon — and only speaks up when something happens in a match you care
@@ -9,7 +11,6 @@ Data comes from a public soccer data API. Configuration lives in the standard
 GNOME Extensions preferences window.
 
 - **UUID:** `gnomefootball@carlosjdelgado`
-- **Version:** 1.1.0
 - **GNOME Shell:** 48, 49, 50
 - **Language:** GJS (GNOME JavaScript), ES modules
 - **UI toolkit (prefs):** libadwaita 1.4+
