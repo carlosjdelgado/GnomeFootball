@@ -2,7 +2,7 @@ name: Publish to extensions.gnome.org
 
 on:
   release:
-    types: [published]
+    types: [prereleased]
 
 jobs:
   publish:
