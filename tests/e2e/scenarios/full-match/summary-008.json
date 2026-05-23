@@ -1,0 +1,32 @@
+{
+  "keyEvents": [
+    {
+      "id": "play-yellow-001",
+      "type": { "id": "63", "text": "Yellow Card" },
+      "team": { "id": "83" },
+      "athletesInvolved": [
+        { "displayName": "Pedri" }
+      ],
+      "clock": { "displayValue": "35'", "value": 2100 }
+    },
+    {
+      "id": "play-red-001",
+      "type": { "id": "64", "text": "Red Card" },
+      "team": { "id": "83" },
+      "athletesInvolved": [
+        { "displayName": "Frenkie de Jong" }
+      ],
+      "clock": { "displayValue": "75'", "value": 4500 }
+    },
+    {
+      "id": "play-sub-001",
+      "type": { "id": "68", "text": "Substitution" },
+      "team": { "id": "86" },
+      "participants": [
+        { "athlete": { "displayName": "Federico Valverde" } },
+        { "athlete": { "displayName": "Luka Modrić" } }
+      ],
+      "clock": { "displayValue": "80'", "value": 4800 }
+    }
+  ]
+}

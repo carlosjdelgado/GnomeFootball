@@ -10,16 +10,16 @@
   ],
   "events": [
     {
-      "id": "test-401234569",
-      "date": "2026-05-18T19:00:00Z",
+      "id": "test-401234567",
+      "date": "2026-05-16T19:00:00Z",
       "status": {
-        "period": 1,
+        "period": 5,
         "type": {
           "id": "2",
           "state": "in",
-          "description": "First Half",
-          "detail": "30'",
-          "shortDetail": "30'"
+          "description": "Penalty Shootout",
+          "detail": "Penalty Shootout",
+          "shortDetail": "PS"
         }
       },
       "competitions": [

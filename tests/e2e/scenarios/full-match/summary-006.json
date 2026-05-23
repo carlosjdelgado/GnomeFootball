@@ -1,0 +1,13 @@
+{
+  "keyEvents": [
+    {
+      "id": "play-yellow-001",
+      "type": { "id": "63", "text": "Yellow Card" },
+      "team": { "id": "83" },
+      "athletesInvolved": [
+        { "displayName": "Pedri" }
+      ],
+      "clock": { "displayValue": "35'", "value": 2100 }
+    }
+  ]
+}

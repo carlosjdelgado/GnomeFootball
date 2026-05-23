@@ -13,13 +13,13 @@
       "id": "test-401234567",
       "date": "2026-05-16T19:00:00Z",
       "status": {
-        "period": 1,
+        "period": 2,
         "type": {
-          "id": "23",
+          "id": "2",
           "state": "in",
-          "description": "Halftime",
-          "detail": "Halftime",
-          "shortDetail": "HT"
+          "description": "Second Half",
+          "detail": "46'",
+          "shortDetail": "46'"
         }
       },
       "competitions": [
@@ -28,7 +28,7 @@
             {
               "id": "86",
               "homeAway": "home",
-              "score": "1",
+              "score": "0",
               "team": {
                 "displayName": "Real Madrid",
                 "shortDisplayName": "Madrid",

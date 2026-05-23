@@ -1,17 +1,7 @@
 {
-  "plays": [
+  "keyEvents": [
     {
-      "id": "play-goal-001",
-      "type": { "id": "70", "text": "Goal" },
-      "team": { "id": "86" },
-      "athletesInvolved": [
-        { "displayName": "Vinícius Júnior" }
-      ],
-      "clock": { "displayValue": "12'", "value": 720 },
-      "scoringPlay": true
-    },
-    {
-      "id": "play-yellow-002",
+      "id": "play-yellow-001",
       "type": { "id": "63", "text": "Yellow Card" },
       "team": { "id": "83" },
       "athletesInvolved": [
@@ -20,7 +10,7 @@
       "clock": { "displayValue": "35'", "value": 2100 }
     },
     {
-      "id": "play-red-003",
+      "id": "play-red-001",
       "type": { "id": "64", "text": "Red Card" },
       "team": { "id": "83" },
       "athletesInvolved": [

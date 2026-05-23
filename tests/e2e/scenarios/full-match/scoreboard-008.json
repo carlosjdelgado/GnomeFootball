@@ -10,16 +10,16 @@
   ],
   "events": [
     {
-      "id": "test-401234568",
-      "date": "2026-05-18T19:00:00Z",
+      "id": "test-401234567",
+      "date": "2026-05-16T19:00:00Z",
       "status": {
-        "period": 1,
+        "period": 2,
         "type": {
           "id": "2",
           "state": "in",
-          "description": "First Half",
-          "detail": "23'",
-          "shortDetail": "23'"
+          "description": "Second Half",
+          "detail": "80'",
+          "shortDetail": "80'"
         }
       },
       "competitions": [

@@ -10,16 +10,16 @@
   ],
   "events": [
     {
-      "id": "test-401234568",
-      "date": "2026-05-18T19:00:00Z",
+      "id": "test-401234567",
+      "date": "2026-05-16T19:00:00Z",
       "status": {
-        "period": 0,
+        "period": 5,
         "type": {
-          "id": "1",
-          "state": "pre",
-          "description": "Scheduled",
-          "detail": "Mon, May 18 at 7:00 PM",
-          "shortDetail": "Mon 7:00 PM"
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
         }
       },
       "competitions": [

@@ -15,11 +15,11 @@
       "status": {
         "period": 2,
         "type": {
-          "id": "28",
-          "state": "post",
-          "description": "Full Time",
-          "detail": "FT",
-          "shortDetail": "FT"
+          "id": "2",
+          "state": "in",
+          "description": "Second Half",
+          "detail": "75'",
+          "shortDetail": "75'"
         }
       },
       "competitions": [
@@ -28,7 +28,7 @@
             {
               "id": "86",
               "homeAway": "home",
-              "score": "1",
+              "score": "0",
               "team": {
                 "displayName": "Real Madrid",
                 "shortDisplayName": "Madrid",

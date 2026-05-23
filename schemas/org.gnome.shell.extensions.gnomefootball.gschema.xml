@@ -94,11 +94,5 @@
       <description>Bumped by the preferences UI to ask the background poller to run immediately.</description>
     </key>
 
-    <key name="replay-dir" type="s">
-      <default>""</default>
-      <summary>Replay-mode fixtures directory</summary>
-      <description>If non-empty, sports-api.js reads scoreboard/summary responses from JSON fixtures under this directory instead of fetching from the network. Used for development and integration testing. Empty string disables replay mode.</description>
-    </key>
-
   </schema>
 </schemalist>

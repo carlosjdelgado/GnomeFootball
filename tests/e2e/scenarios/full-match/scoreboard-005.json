@@ -15,11 +15,11 @@
       "status": {
         "period": 1,
         "type": {
-          "id": "2",
+          "id": "23",
           "state": "in",
-          "description": "First Half",
-          "detail": "35'",
-          "shortDetail": "35'"
+          "description": "Halftime",
+          "detail": "Halftime",
+          "shortDetail": "HT"
         }
       },
       "competitions": [
@@ -28,7 +28,7 @@
             {
               "id": "86",
               "homeAway": "home",
-              "score": "1",
+              "score": "0",
               "team": {
                 "displayName": "Real Madrid",
                 "shortDisplayName": "Madrid",

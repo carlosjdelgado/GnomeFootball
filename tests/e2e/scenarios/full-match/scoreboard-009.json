@@ -10,16 +10,16 @@
   ],
   "events": [
     {
-      "id": "test-401235000",
+      "id": "test-401234567",
       "date": "2026-05-16T19:00:00Z",
       "status": {
-        "period": 2,
+        "period": 3,
         "type": {
           "id": "2",
           "state": "in",
-          "description": "Second Half",
-          "detail": "72'",
-          "shortDetail": "72'"
+          "description": "Extra Time",
+          "detail": "90+3'",
+          "shortDetail": "90+3'"
         }
       },
       "competitions": [
@@ -28,7 +28,7 @@
             {
               "id": "86",
               "homeAway": "home",
-              "score": "2",
+              "score": "0",
               "team": {
                 "displayName": "Real Madrid",
                 "shortDisplayName": "Madrid",
@@ -39,7 +39,7 @@
             {
               "id": "83",
               "homeAway": "away",
-              "score": "2",
+              "score": "0",
               "team": {
                 "displayName": "FC Barcelona",
                 "shortDisplayName": "Barcelona",
