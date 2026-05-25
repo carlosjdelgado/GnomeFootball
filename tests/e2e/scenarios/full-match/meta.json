@@ -8,7 +8,7 @@
       "label": "PRE-MATCH — Real Madrid vs FC Barcelona (starts in ~5 min)",
       "expected": "No notification (baseline)",
       "scoreboard": "scoreboard-000.json",
-      "injectDate": true
+      "injectDate": "+5 minutes"
     },
     {
       "step": 1,

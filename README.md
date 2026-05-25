@@ -41,8 +41,9 @@ GNOME Extensions preferences window.
   catch-up notifications.
 - Configurable polling interval (1–30 minutes, default 5).
 - Translated to Spanish, Portuguese, Italian, German and French.
-- Replay/test harness that drives the full pipeline from JSON fixtures, no
-  network required.
+- Interactive E2E test runner (`tests/e2e/run.sh`) that injects fixture matches
+  into the live extension and walks you through every event type step by step,
+  no real match required.
 
 ---
 
@@ -220,22 +221,22 @@ footprint small without missing the kickoff transition.
 │   └── screenshots/                   PNGs referenced by this README
 ├── lib/
 │   ├── constants.js                   API base URL, league catalog, event types, status enums
-│   ├── sports-api.js                  libsoup3 client with retry/backoff; replay-aware
+│   ├── sports-api.js                  libsoup3 client with retry/backoff; disk-first fixture lookup
 │   ├── catalog.js                     /teams discovery, normalized & cached in GSettings (7-day TTL)
 │   ├── event-detector.js              Pure diff function: previousState + scoreboard + summary → events
 │   ├── poller.js                      GLib.timeout-driven tick loop, orchestrates the pipeline
 │   ├── notifier.js                    MessageTray.Source + Notification, crest-aware icon resolution
 │   ├── crest-cache.js                 On-disk PNG cache for team / league logos
 │   ├── storage.js                     JSON read/write under $XDG_DATA_HOME/gnomefootball/
-│   └── replay.js                      Replay-mode: serve scoreboard/summary from JSON fixtures
 ├── schemas/
 │   └── org.gnome.shell.extensions.gnomefootball.gschema.xml
 ├── po/                                Translation sources (.pot + per-language .po)
 ├── locale/                            Compiled .mo files (generated)
-└── test-fixtures/                     Replay-mode JSON fixtures
-    ├── sample-match/                  8-tick PRE→IN→POST run, exercises every event type
-    ├── cold-start-mid-game/           1 tick mid-match — should produce 0 notifications
-    └── keyevents-fix/                 Real LaLiga 2 sample used to validate keyEvents parsing
+└── tests/
+    └── e2e/
+        ├── run.sh                     Interactive E2E runner — injects fixtures, fires ticks step by step
+        └── scenarios/
+            └── full-match/            12-step PRE→IN→POST run, exercises every event type
 ```
 
 ### GSettings schema
@@ -257,7 +258,7 @@ footprint small without missing the kickoff transition.
 | `catalog-cache-json` | `s` | `"{}"` | Cached league/team catalog |
 | `catalog-fetched-at` | `x` | `0` | UNIX seconds, last successful catalog refresh |
 | `force-check-trigger` | `x` | `0` | Bumped by prefs to force an immediate poll tick |
-| `replay-dir` | `s` | `""` | If non-empty, serve scoreboards/summaries from this directory instead of the network |
+
 
 ---
 
@@ -274,7 +275,7 @@ The dev workflow assumes you've run `./install.sh` once so the symlink exists.
 | `prefs.js` | Close and reopen the prefs window |
 | `schemas/*.gschema.xml` | Re-run `./install.sh`, then reload the Shell |
 | `po/*.po` | Re-run `./install.sh` to rebuild `locale/*.mo` |
-| Fixtures under `test-fixtures/` | Read every tick — no reload needed |
+| Scenarios under `tests/e2e/scenarios/` | Re-read on every run — no reload needed |
 
 > **Note on GJS module caching.** On Wayland, disable/enable only re-imports
 > `extension.js`. Everything under `lib/` is cached for the lifetime of the
@@ -297,60 +298,28 @@ gsettings set org.gnome.shell.extensions.gnomefootball force-check-trigger $(dat
 
 The poller listens for changes to that key and runs a tick on the spot.
 
-### Replay-mode (offline testing)
+### E2E test runner
 
-The poller, detector, and notifier work end-to-end against pre-recorded JSON
-fixtures, so you can validate behaviour without waiting for a real match.
+The runner injects a fictional match directly into the live extension by
+writing fixture files under `~/.local/share/gnomefootball/fixtures/<slug>/`.
+`sports-api.js` picks them up via a disk-first lookup, so no special mode is
+needed and real subscribed matches continue to work alongside the test match.
 
-```fish
-# 1. Subscribe to the test league (preserves existing subscriptions)
-gsettings set org.gnome.shell.extensions.gnomefootball subscriptions-json (
-    gsettings get org.gnome.shell.extensions.gnomefootball subscriptions-json \
-      | string trim --chars "'" \
-      | jq -c '. + {"test.1": {"mode": "all"}}'
-)
+Requirements: `gsettings`, `jq`, and the extension installed and enabled.
 
-# 2. Enable replay
-gsettings set org.gnome.shell.extensions.gnomefootball replay-dir \
-    "$PWD/test-fixtures/sample-match"
-
-# 3. Clean slate
-rm -f ~/.local/share/gnomefootball/live-state.json
-
-# 4. Drive 8 ticks (sample-match) or 1 tick (cold-start-mid-game)
-for i in (seq 1 8)
-    gsettings set org.gnome.shell.extensions.gnomefootball force-check-trigger (date +%s)
-    sleep 5
-end
-
-# 5. Tear down
-gsettings set org.gnome.shell.extensions.gnomefootball replay-dir ""
-gsettings set org.gnome.shell.extensions.gnomefootball subscriptions-json (
-    gsettings get org.gnome.shell.extensions.gnomefootball subscriptions-json \
-      | string trim --chars "'" \
-      | jq -c 'del(."test.1")'
-)
+```sh
+./tests/e2e/run.sh
 ```
 
-Expected results:
+The script is interactive: each step shows the expected notification and waits
+for you to press **Enter** to fire the next tick, or **q** to quit early.
+Cleanup (fixture files, subscription entry, live-state entry) runs
+automatically on exit.
 
-- `sample-match`: 8 ticks, 7 notifications (kickoff, goal, yellow, half-time,
-  second-half start, red card, full-time).
-- `cold-start-mid-game`: 1 tick, **0 notifications** plus a log line
-  `cold-start baseline ... — suppressing catch-up notifications`.
-- `substitution`: 3 ticks, 2 notifications (kickoff at tick 1, substitution
-  at tick 2). Requires `event-substitution` enabled.
-- `goal-disallowed`: 3 ticks, 3 notifications (kickoff + goal at tick 1,
-  goal disallowed at tick 2). Exercises the VAR-cancellation path: the
-  goal vanishes from `plays` and the team's score drops, so the detector
-  emits a `goal-disallowed` event with the original scorer and the
-  updated score. Gated by the regular `event-goal` toggle — there is no
-  separate switch.
-
-To add a new fixture set, drop JSON files under
-`test-fixtures/<name>/test.1/` named `scoreboard-NNN.json` and (optionally)
-`summary-NNN-<eventId>.json`, where `NNN` is the tick number starting at
-`000`.
+`full-match` covers every event type: pre-match baseline (no notification),
+kickoff, goal, goal disallowed (VAR), yellow card, half-time, second-half
+start, red card, substitution, extra time, penalties, full-time. If you add
+support for a new event type, extend this scenario with the extra steps.
 
 ---
 
@@ -402,8 +371,8 @@ extra leagues, UI polish, anything that helps.
 
 1. Run `./install.sh` and confirm the extension loads (`journalctl` is clean).
 2. If you changed anything in `lib/poller.js`, `lib/event-detector.js` or
-   `lib/notifier.js`, run the `sample-match` and `cold-start-mid-game`
-   fixtures and check the counts above.
+   `lib/notifier.js`, run `./tests/e2e/run.sh` and verify each step
+   produces the expected notification.
 3. If you touched the schema, bump the relevant defaults in `prefs.js` if
    needed and verify `glib-compile-schemas schemas/` exits clean.
 4. If you added user-visible strings, refresh `po/gnomefootball.pot` and run
@@ -415,8 +384,8 @@ extra leagues, UI polish, anything that helps.
   the upstream API returns `200 OK` for `/teams` and `/scoreboard` on that
   slug.
 - Translate `po/gnomefootball.pot` into your language.
-- Capture a new replay fixture for a scenario the existing fixtures don't
-  exercise (own goals, VAR overturns, abandoned matches…).
+- Extend the `full-match` E2E scenario with steps for event types not yet
+  covered (own goals, VAR overturns, abandoned matches…).
 
 ---
 

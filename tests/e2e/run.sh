@@ -85,11 +85,11 @@ load_step() {
 
     scoreboard=$(jq -r ".steps[$idx].scoreboard" "$META")
     summary=$(jq -r ".steps[$idx].summary // empty" "$META")
-    inject_date=$(jq -r ".steps[$idx].injectDate // false" "$META")
+    inject_date=$(jq -r ".steps[$idx].injectDate // empty" "$META")
 
-    if [[ "$inject_date" == "true" ]]; then
+    if [[ -n "$inject_date" ]]; then
         local d
-        d=$(date -u -d '+5 minutes' '+%Y-%m-%dT%H:%M:%SZ')
+        d=$(date -u -d "$inject_date" '+%Y-%m-%dT%H:%M:%SZ')
         jq --arg d "$d" '.events[0].date = $d' \
             "$SCENARIO_DIR/$scoreboard" > "$OVERRIDE_DIR/scoreboard.json"
     else
