@@ -8,6 +8,57 @@ before implementation begins; the *what shipped* lives in
 The roadmap is intentionally not linked from the `README` — it is
 working notes for the maintainer, not user-facing material.
 
+## v1.X.Y (TBD) — Logo quality improvements
+
+Two self-contained improvements to how league and team logos are fetched
+and displayed. Neither requires an architectural change; both are
+additive and independent of v2.0.0.
+
+### Crest compression via ESPN combiner API
+
+The ESPN CDN exposes a combiner endpoint that resizes images server-side:
+
+```
+https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/86.png&h=150&w=150
+```
+
+At 150 × 150 px the image covers 3 × HiDPI (144 physical pixels) and
+any reasonable Linux display configuration, while cutting download size
+and on-disk cache by ~91 % compared to the current 500 × 500 originals.
+
+The change is isolated to `downloadTo()` in `lib/crest-cache.js`: a
+small `optimizeUrl()` function rewrites `a.espncdn.com/i/…` URLs
+through the combiner; any other URL passes through unchanged.
+
+### Dark-mode logo selection
+
+ESPN returns two logo variants for most leagues and all teams:
+
+- `rel: ["full", "default"]` — light background version
+- `rel: ["full", "dark"]` — dark background version
+
+Not all competitions have both (e.g. `esp.2`, `ita.2`, `ger.2` only
+have `default`); the implementation must fall back to `default` when
+`dark` is absent.
+
+GNOME exposes the active color scheme via GSettings:
+
+```js
+const settings = new Gio.Settings({ schema: 'org.gnome.desktop.interface' });
+const isDark = settings.get_string('color-scheme') === 'prefer-dark';
+```
+
+The `changed::color-scheme` signal can be used to react to live theme
+changes without requiring a session restart.
+
+The change affects logo resolution in `lib/catalog.js` and
+`lib/poller.js`, where `logos[0].href` is currently hardcoded to the
+first (always `default`) entry. A helper that picks the right variant
+based on the current color scheme should be extracted and shared between
+both call sites.
+
+---
+
 ## v2.0.0 — Calendar integration, anticipation, and noise control
 
 ### Vision
