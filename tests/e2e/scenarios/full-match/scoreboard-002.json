@@ -2,9 +2,9 @@
   "leagues": [
     {
       "id": "15",
-      "name": "Test League",
+      "name": "UEFA Champions League",
       "logos": [
-        { "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/15.png" }
+        { "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png" }
       ]
     }
   ],
