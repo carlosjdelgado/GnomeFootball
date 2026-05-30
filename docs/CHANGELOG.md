@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.1.1] - TBD
+## [1.1.1] - 2026-05-30
 
 ### Changed
 
@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   automatically by the extension (disk-first lookup in `sports-api.js`)
   without any special mode being active. No user-facing changes.
 
-## [1.1.0] - 2026-05-30
+## [1.1.0] - 2026-05-29
 
 ### Added
 
