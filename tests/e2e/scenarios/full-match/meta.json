@@ -14,7 +14,8 @@
       "step": 1,
       "label": "MATCH_START — match begins",
       "expected": "Notification: match started",
-      "scoreboard": "scoreboard-001.json"
+      "scoreboard": "scoreboard-001.json",
+      "summary": "summary-001.json"
     },
     {
       "step": 2,
@@ -27,7 +28,8 @@
       "step": 3,
       "label": "GOAL_DISALLOWED — VAR disallows goal (back to 0-0)",
       "expected": "Notification: goal disallowed",
-      "scoreboard": "scoreboard-003.json"
+      "scoreboard": "scoreboard-003.json",
+      "summary": "summary-003.json"
     },
     {
       "step": 4,
