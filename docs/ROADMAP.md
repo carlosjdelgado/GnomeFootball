@@ -150,15 +150,26 @@ calendar on an idle Tuesday.
 
 ## Feature 2 — Pre-match reminders
 
+> **Status: DELIVERED in v1.2.0** (ahead of v2.0.0). See
+> [`CHANGELOG.md`](CHANGELOG.md). The shipped design differs from the
+> D9 freeze below — kept here for context and the "pairs with the
+> panel" rationale, which still holds for Feature 1.
+
 A single configurable notification fires N minutes before the kickoff
 of each subscribed match. Pairs with Feature 1: the panel shows what's
 coming, the reminder pokes when one is about to start.
 
 ### D9 — Single configurable lead time, off by default
 
-One new GSetting, `pre-match-reminder-minutes` (integer, range 0–60,
-default `0`). A value of `0` disables the feature; any positive value
-schedules a reminder that many minutes before kickoff.
+**As shipped in v1.2.0:** two GSettings — `event-match-reminder`
+(boolean, default `false`) is the on/off toggle, and
+`reminder-lead-minutes` (integer, range 5–180, default `30`) is the
+lead time. This replaced the originally-frozen single
+`pre-match-reminder-minutes` (0–60, default 0) design: a dedicated
+toggle reads more clearly in prefs than overloading `0` as "off", and
+a wider 5–180 range covers users who want a longer heads-up. One
+reminder per match, fired from a polling tick (precision bounded by
+the poll interval — see Open considerations).
 
 **Why one lead time, not multiple:** offering "remind me at 30, 10
 and 5 minutes" multiplies prefs surface and notification noise for
@@ -173,11 +184,12 @@ onboarding.
 
 ### D10 — One reminder per match, idempotent
 
-Each match generates exactly one pre-match reminder. The detector
-records a `preMatchReminderSent` flag per `matchId` in `liveState`,
-flushed when the match transitions to `post`. Re-launching the
-extension, changing the lead time mid-day, or a missed poll cycle
-must never produce a duplicate reminder.
+Each match generates exactly one pre-match reminder. **As shipped in
+v1.2.0** the detector records a `reminderAnnounced` flag per match in
+`liveState` (cold-start sets it `true` so already-past kickoffs are
+suppressed). Re-launching the extension, changing the lead time
+mid-day, or a missed poll cycle must never produce a duplicate
+reminder.
 
 ### D11 — Reuses existing subscription filter, no new toggle
 
@@ -202,9 +214,10 @@ half-time, etc.) carries a single action button labelled "Mute match"
 (localised in all supported locales).
 
 **Layout:** the button sits in the action area at the bottom of the
-notification card. The notification body remains clickable as today
-(opens the ESPN match page); the button is a separate hit target. No
-ambiguity between "I want to read more" and "I want to silence this".
+notification card. The notification body remains clickable (opens the
+ESPN match page — **shipped in v1.2.0**); the button is a separate hit
+target. No ambiguity between "I want to read more" and "I want to
+silence this".
 
 **Effect on press:** adds `matchId` to `liveState.mutedMatches`, then
 dismisses the current notification card. No further notifications
@@ -234,6 +247,38 @@ a mute set on a Tuesday match is gone by Wednesday morning.
 No GSetting, no UI to view past mutes — it's strictly transient
 runtime state. If a user wants to silence a whole league
 permanently, they unsubscribe.
+
+### D15 — Mute a whole day from the panel (bulk per-match mute)
+
+The calendar panel (Feature 1) carries a single button in a corner of
+the section header: **"Mute all" / "Un-mute all"**. It acts on the
+matches *currently listed* for the selected day — it is a bulk
+operation over the existing per-match mute, **not** a new date-level
+concept.
+
+**Effect on press (Mute all):** every match currently shown in the
+panel for that day has its `matchId` added to `liveState.mutedMatches`
+— exactly as if the user had pressed "Mute match" (D12) on each one
+individually. Each muted match then follows the normal per-match
+lifecycle: no further notifications until full-time, auto-expire at
+`post` (D14), un-mute via the per-row bell icon (D13).
+
+**Effect on press (Un-mute all):** removes every currently-listed
+match from `mutedMatches`. The button is a toggle whose label/state
+reflects whether *all* listed matches are currently muted.
+
+**Deliberately a snapshot, not a date rule.** Muting a day does not
+create a persistent "this date is silenced" rule: a match that ESPN
+adds to that day *after* the press is **not** covered and will still
+notify. Rationale — it reuses the per-match mute mechanism wholesale
+(no new `mutedDays` set, no new storage, no new expiry path), and a
+day's fixture list is effectively settled by the time a user is
+muting it. The cost (late-added matches escape the mute) is accepted
+as negligible.
+
+**Scope note.** Because the panel is subscriptions-filtered (D5), the
+button only ever mutes matches the user would have been notified
+about anyway. On an empty day the button is hidden (nothing to mute).
 
 ---
 
@@ -296,8 +341,9 @@ permanently, they unsubscribe.
   the kickoff time, the lead-time, or both ("Kicks off in 10 minutes
   (20:00)").
 - New translatable strings (panel headers, three empty-state
-  messages, "Mute match" button label, pre-match body) must land in
-  all existing locales.
+  messages, "Mute match" button label, "Mute all"/"Un-mute all" day
+  button label) must land in all existing locales. (The pre-match
+  reminder body already shipped translated in v1.2.0.)
 
 ---
 
