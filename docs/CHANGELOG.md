@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - TBD
+
+### Added
+
+- Pre-match reminder. New `event-match-reminder` toggle, **off by default** —
+  enable it in preferences to receive a heads-up notification before a
+  subscribed match kicks off. A companion `reminder-lead-minutes` setting
+  controls how far ahead it fires (default 30 minutes, range 5–180). The
+  notification shows the teams, competition and local kick-off time, and
+  fires once per match. Translated into all bundled locales (de, es, fr,
+  it, pt).
+- 7 new competitions across 3 new catalog groups:
+  - **Mexico**: Liga MX, Liga de Expansión MX.
+  - **Colombia**: Categoría Primera A, Categoría Primera B, Copa Colombia.
+  - **Chile**: Primera División, Copa Chile.
+- Clicking a notification now opens that match's page (ESPN gamecast) in the
+  default browser. Works for every event type; the notification stays in the
+  tray after the click.
+
 ## [1.1.2] - TBD
 
 ### Added

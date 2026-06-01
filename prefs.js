@@ -40,6 +40,9 @@ function countryLabel(id) {
         case 'germany':   return _('Germany');
         case 'brazil':    return _('Brazil');
         case 'argentina': return _('Argentina');
+        case 'mexico':    return _('Mexico');
+        case 'colombia':  return _('Colombia');
+        case 'chile':     return _('Chile');
         case 'usa':       return _('United States');
         case 'uefa':      return _('UEFA');
         case 'conmebol':  return _('CONMEBOL');
@@ -425,6 +428,41 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
             iconName: 'preferences-system-notifications-symbolic',
         });
         window.add(page);
+
+        // Match reminder: a pre-kickoff heads-up with a user-defined lead time.
+        // Off by default and rendered separately from the in-match event
+        // switches because it carries its own lead-time setting.
+        const reminderGroup = new Adw.PreferencesGroup({
+            title: _('Match reminder'),
+            description: _('Get a heads-up before a subscribed match kicks off.'),
+        });
+        page.add(reminderGroup);
+
+        const reminderRow = new Adw.SwitchRow({
+            title: _('Remind me before kick-off'),
+            active: this._settings.get_boolean('event-match-reminder'),
+        });
+        this._settings.bind('event-match-reminder', reminderRow, 'active', 0);
+        reminderGroup.add(reminderRow);
+
+        const leadAdjustment = new Gtk.Adjustment({
+            lower: 5,
+            upper: 180,
+            stepIncrement: 5,
+            pageIncrement: 15,
+            value: this._settings.get_int('reminder-lead-minutes'),
+        });
+        const leadRow = new Adw.SpinRow({
+            title: _('Minutes before kick-off'),
+            subtitle: _('Range: 5-180 minutes'),
+            adjustment: leadAdjustment,
+            sensitive: reminderRow.active,
+        });
+        this._settings.bind('reminder-lead-minutes', leadAdjustment, 'value', 0);
+        reminderRow.connect('notify::active', () => {
+            leadRow.sensitive = reminderRow.active;
+        });
+        reminderGroup.add(leadRow);
 
         const group = new Adw.PreferencesGroup({
             title: _('Notification types'),

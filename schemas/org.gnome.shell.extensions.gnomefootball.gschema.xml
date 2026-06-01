@@ -10,6 +10,19 @@
       <description>How often the extension polls for match updates. Range 1-30 minutes.</description>
     </key>
 
+    <key name="event-match-reminder" type="b">
+      <default>false</default>
+      <summary>Notify before kick-off</summary>
+      <description>Send a reminder notification a configurable number of minutes before a subscribed match kicks off. Disabled by default.</description>
+    </key>
+
+    <key name="reminder-lead-minutes" type="i">
+      <range min="5" max="180"/>
+      <default>30</default>
+      <summary>Reminder lead time in minutes</summary>
+      <description>How many minutes before kick-off the match reminder fires. Range 5-180 minutes.</description>
+    </key>
+
     <key name="event-match-start" type="b">
       <default>true</default>
       <summary>Notify on match start</summary>
