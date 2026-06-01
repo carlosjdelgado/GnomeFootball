@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.2] - TBD
+
+### Added
+
+- Dark-mode logo selection. Notification crest and league logos now follow
+  the active GNOME color scheme: the dark logo variant is used under
+  `prefer-dark` and the default (light) variant otherwise, falling back to
+  the default whenever a competition ships no dark variant. Cache keys are
+  scoped by theme so switching appearance resolves the matching variant on
+  the next notification.
+
+### Changed
+
+- Crest and league logos are now fetched at 150 × 150 px through the ESPN
+  combiner endpoint instead of the 500 × 500 originals, cutting the
+  download and on-disk cache size by ~91 %. At 150 px the image still
+  covers 3× HiDPI; the rewrite is isolated to `lib/crest-cache.js` and
+  only touches `a.espncdn.com/i/…` URLs — any other URL passes through
+  unchanged. No user-facing changes.
+
 ## [1.1.1] - 2026-05-30
 
 ### Changed
@@ -85,7 +105,8 @@ Initial release, published on [extensions.gnome.org](https://extensions.gnome.or
 - Translations: English, Spanish, Portuguese, Italian, German, French.
 - JSON fixture replay harness for development testing (replaced in 1.1.1).
 
-[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.1...HEAD
+[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/carlosjdelgado/GnomeFootball/releases/tag/v1.0.0

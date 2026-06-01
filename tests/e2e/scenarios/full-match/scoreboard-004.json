@@ -4,7 +4,8 @@
       "id": "15",
       "name": "UEFA Champions League",
       "logos": [
-        { "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png" }
+        { "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png", "rel": ["full", "default"] },
+        { "href": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png", "rel": ["full", "dark"] }
       ]
     }
   ],
