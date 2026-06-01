@@ -1,5 +1,6 @@
 # Gnome Football
 
+[![GNOME Extensions Version](https://img.shields.io/gnome-extensions/v/gnomefootball@carlosjdelgado)](https://extensions.gnome.org/extension/10007/gnome-football/)
 [![GNOME Extensions Downloads](https://img.shields.io/gnome-extensions/dt/gnomefootball@carlosjdelgado)](https://extensions.gnome.org/extension/10007/gnome-football/)
 
 A GNOME Shell extension that delivers native desktop notifications for football
@@ -201,64 +202,6 @@ reload. From the next tick onward only true deltas are notified.
 Matches in the `pre` state are only fetched when they kick off within the next
 10 minutes (`PRE_MATCH_WATCH_WINDOW_MINUTES`). This keeps the upstream
 footprint small without missing the kickoff transition.
-
----
-
-## Project layout
-
-```
-.
-├── metadata.json                      Extension manifest (UUID, version-name, shell-version, schema, gettext domain)
-├── extension.js                       Entry point: enable() / disable()
-├── prefs.js                           libadwaita preferences UI (3 pages)
-├── install.sh                         Compile schema + .mo files + symlink into the GNOME extensions dir
-├── package.sh                         Produce a zip ready for extensions.gnome.org
-├── LICENSE                            GPL-2.0-or-later
-├── icons/
-│   └── hicolor/scalable/apps/
-│       └── gnomefootball-symbolic.svg Notification + prefs tab icon
-├── docs/
-│   └── screenshots/                   PNGs referenced by this README
-├── lib/
-│   ├── constants.js                   API base URL, league catalog, event types, status enums
-│   ├── sports-api.js                  libsoup3 client with retry/backoff; disk-first fixture lookup
-│   ├── catalog.js                     /teams discovery, normalized & cached in GSettings (7-day TTL)
-│   ├── event-detector.js              Pure diff function: previousState + scoreboard + summary → events
-│   ├── poller.js                      GLib.timeout-driven tick loop, orchestrates the pipeline
-│   ├── notifier.js                    MessageTray.Source + Notification, crest-aware icon resolution
-│   ├── crest-cache.js                 On-disk PNG cache for team / league logos
-│   ├── storage.js                     JSON read/write under $XDG_DATA_HOME/gnomefootball/
-├── schemas/
-│   └── org.gnome.shell.extensions.gnomefootball.gschema.xml
-├── po/                                Translation sources (.pot + per-language .po)
-├── locale/                            Compiled .mo files (generated)
-└── tests/
-    └── e2e/
-        ├── run.sh                     Interactive E2E runner — injects fixtures, fires ticks step by step
-        └── scenarios/
-            └── full-match/            12-step PRE→IN→POST run, exercises every event type
-```
-
-### GSettings schema
-
-| Key | Type | Default | Purpose |
-|---|---|---|---|
-| `poll-interval-minutes` | `i` (1–30) | `5` | How often to poll the upstream API |
-| `event-match-start` | `b` | `true` | Notify on kickoff |
-| `event-goal` | `b` | `true` | Notify on goal |
-| `event-yellow-card` | `b` | `true` | Notify on yellow card |
-| `event-red-card` | `b` | `true` | Notify on red / second-yellow card |
-| `event-substitution` | `b` | `false` | Notify on player substitutions (opt-in) |
-| `event-half-time-end` | `b` | `true` | Notify at HT |
-| `event-second-half-start` | `b` | `true` | Notify when the 2nd half starts |
-| `event-match-end` | `b` | `true` | Notify at full time |
-| `event-extra-time` | `b` | `true` | Notify on extra time |
-| `event-penalties` | `b` | `true` | Notify on penalty shootout |
-| `subscriptions-json` | `s` | `"{}"` | `{ "<slug>": { "mode": "all"\|"teams", "teams": [id,…] } }` |
-| `catalog-cache-json` | `s` | `"{}"` | Cached league/team catalog |
-| `catalog-fetched-at` | `x` | `0` | UNIX seconds, last successful catalog refresh |
-| `force-check-trigger` | `x` | `0` | Bumped by prefs to force an immediate poll tick |
-
 
 ---
 
