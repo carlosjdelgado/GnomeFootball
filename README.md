@@ -29,22 +29,26 @@ GNOME Extensions preferences window.
   Gated by the regular goal toggle — no extra switch.
 - Substitutions (opt-in): off by default; enable in preferences to receive a
   notification each time a player swap happens.
+- Pre-match reminder (opt-in): off by default; enable it to get a heads-up
+  before a subscribed match kicks off. A configurable lead time (5–180
+  minutes, default 30) controls how far ahead it fires, and it fires once per
+  match.
+- Click-to-open: clicking any notification opens that match's page in your
+  default browser. The notification stays in the tray after the click.
 - Per-competition subscriptions, with two modes:
   - **All matches** in a league.
   - **Specific teams** — receive only matches that include any of the teams you
     pick.
-- 42 leagues and cups across Spain, England, Italy, France, Portugal, Germany,
-  Brazil, Argentina, United States, UEFA, CONMEBOL, CONCACAF and FIFA. Team
-  rosters are discovered live from the upstream API and cached for 7 days.
+- 49 leagues and cups across Spain, England, Italy, France, Portugal, Germany,
+  Brazil, Argentina, Mexico, Colombia, Chile, United States, UEFA, CONMEBOL,
+  CONCACAF and FIFA. Team rosters are discovered live from the upstream API and
+  cached for 7 days.
 - Crest icons on notifications, with on-disk caching.
 - Cold-start protection: if the extension wakes up while a match is already in
   progress, past events are absorbed silently instead of spamming you with
   catch-up notifications.
 - Configurable polling interval (1–30 minutes, default 5).
 - Translated to Spanish, Portuguese, Italian, German and French.
-- Interactive E2E test runner (`tests/e2e/run.sh`) that injects fixture matches
-  into the live extension and walks you through every event type step by step,
-  no real match required.
 
 ---
 
@@ -145,13 +149,20 @@ gnome-extensions prefs gnomefootball@carlosjdelgado
 
 You'll find three pages:
 
-- **Competitions.** Toggle the leagues you want to follow. For each enabled
-  league, pick **All matches** or **Specific teams**. In team mode, expand
-  "Select teams" and switch on the ones you care about. The FIFA World Cup
-  entry is hidden unless the upstream API reports active events.
-- **Events.** Switches for each notification type (match start, goal, yellow
-  card, red card, half-time, second-half start, match end, extra time,
-  penalties).
+- **Competitions.** At the top, a **Catalog** card shows when leagues and teams
+  were last loaded from the upstream source and offers a **Refresh now** button;
+  the catalog loads automatically on first open and is cached locally. Below it,
+  toggle the leagues you want to follow. Each enabled league defaults to **All
+  matches**; flip its **Specific teams only** switch to instead receive only
+  matches involving teams you pick from the inline list. Conditional entries —
+  such as cup competitions with a seasonal window — stay hidden until the
+  upstream API reports active events for them.
+- **Events.** At the top, a **Match reminder** card with a **Remind me before
+  kick-off** switch (off by default) and a **Minutes before kick-off** field
+  (5–180, default 30) that becomes editable once the reminder is on. Below it,
+  one switch per in-match notification type: match start, goal, yellow card,
+  red card, substitution, half-time, second-half start, full-time, extra time
+  and penalty shootout.
 - **General.** Polling interval (1–30 min) and a **Check now** button that
   forces an immediate tick.
 
@@ -180,8 +191,8 @@ Each polling tick does:
    query.
 2. For every subscribed slug, fetch `/scoreboard` from the upstream API.
 3. For matches that pass the subscription filter and are **in progress** (or
-   about to kick off within 10 minutes), fetch the per-match `/summary` for
-   the play-by-play (`keyEvents`).
+   about to kick off within the pre-match watch window), fetch the per-match
+   `/summary` for the play-by-play (`keyEvents`).
 4. Diff the new scoreboard + summary against the previous snapshot stored in
    `live-state.json`. The detector emits one logical event per real
    transition (kickoff, halftime, goal, card, etc.).
@@ -199,9 +210,13 @@ reload. From the next tick onward only true deltas are notified.
 
 ### Polling and the pre-match window
 
-Matches in the `pre` state are only fetched when they kick off within the next
-10 minutes (`PRE_MATCH_WATCH_WINDOW_MINUTES`). This keeps the upstream
-footprint small without missing the kickoff transition.
+Matches in the `pre` state are only fetched when they kick off within the
+pre-match watch window — 10 minutes by default
+(`PRE_MATCH_WATCH_WINDOW_MINUTES`). This keeps the upstream footprint small
+without missing the kickoff transition. When the match reminder is enabled the
+poller widens that window to the reminder lead time (`max(10, lead-minutes)`)
+so a not-yet-started match is already being tracked when its reminder is due to
+fire.
 
 ---
 
@@ -259,10 +274,10 @@ for you to press **Enter** to fire the next tick, or **q** to quit early.
 Cleanup (fixture files, subscription entry, live-state entry) runs
 automatically on exit.
 
-`full-match` covers every event type: pre-match baseline (no notification),
-kickoff, goal, goal disallowed (VAR), yellow card, half-time, second-half
-start, red card, substitution, extra time, penalties, full-time. If you add
-support for a new event type, extend this scenario with the extra steps.
+To exercise a new case, edit the scenario under `tests/e2e/scenarios/`: each
+step is a fixture snapshot the runner feeds to the extension on the next tick,
+so adding a step (or tweaking an existing one) lets you reproduce any sequence
+of match states without a real match.
 
 ---
 
@@ -327,8 +342,7 @@ extra leagues, UI polish, anything that helps.
   the upstream API returns `200 OK` for `/teams` and `/scoreboard` on that
   slug.
 - Translate `po/gnomefootball.pot` into your language.
-- Extend the `full-match` E2E scenario with steps for event types not yet
-  covered (own goals, VAR overturns, abandoned matches…).
+- Extend the E2E test scenario with steps for event types not yet covered.
 
 ---
 
