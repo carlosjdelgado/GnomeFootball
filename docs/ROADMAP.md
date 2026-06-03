@@ -19,7 +19,8 @@ calendar-integrated football companion. Three coordinated additions:
    a passive surface to *consult* what's happening today, what
    happened yesterday, what's coming tomorrow.
 2. **Pre-match reminders** — a proactive nudge before a subscribed
-   match kicks off. Closes the loop with the panel.
+   match kicks off. Closes the loop with the panel. *(Delivered ahead
+   of schedule in v1.2.0 — see Feature 2 below.)*
 3. **Per-match mute** — a fine-grained noise control surfaced
    directly from each match notification.
 
