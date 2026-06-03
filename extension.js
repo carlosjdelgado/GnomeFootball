@@ -10,7 +10,7 @@ import { initNotifier, disposeNotifier } from './lib/notifier.js';
 export default class GnomeFootballExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
-        initNotifier(this.path);
+        initNotifier(this.path, this._settings);
         this._poller = new Poller(this._settings);
         this._poller.enable();
         console.debug('[GnomeFootball] enabled');

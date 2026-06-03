@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnomefootball 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-01 12:37+0200\n"
+"POT-Creation-Date: 2026-06-03 07:58+0200\n"
 "PO-Revision-Date: 2026-05-16 00:00+0000\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -84,15 +84,15 @@ msgstr "Inizio partita (calcio d'inizio)"
 msgid "Goal"
 msgstr "Gol"
 
-#: prefs.js:59 lib/notifier.js:171
+#: prefs.js:59 lib/notifier.js:177
 msgid "Yellow card"
 msgstr "Cartellino giallo"
 
-#: prefs.js:60 lib/notifier.js:181
+#: prefs.js:60 lib/notifier.js:187
 msgid "Red card"
 msgstr "Cartellino rosso"
 
-#: prefs.js:61 lib/notifier.js:159
+#: prefs.js:61 lib/notifier.js:165
 msgid "Substitution"
 msgstr "Sostituzione"
 
@@ -104,15 +104,15 @@ msgstr "Fine del primo tempo"
 msgid "Second half starts"
 msgstr "Inizio del secondo tempo"
 
-#: prefs.js:64 lib/notifier.js:203
+#: prefs.js:64 lib/notifier.js:209
 msgid "Full-time"
 msgstr "Fine partita"
 
-#: prefs.js:65 lib/notifier.js:209
+#: prefs.js:65 lib/notifier.js:215
 msgid "Extra time"
 msgstr "Tempi supplementari"
 
-#: prefs.js:66 lib/notifier.js:215
+#: prefs.js:66 lib/notifier.js:221
 msgid "Penalty shootout"
 msgstr "Calci di rigore"
 
@@ -225,92 +225,109 @@ msgid "Range: 1-30 minutes"
 msgstr "Intervallo: 1-30 minuti"
 
 #: prefs.js:515
+msgid "Notifications"
+msgstr "Notifiche"
+
+#: prefs.js:516
+msgid "Control how notifications behave when you interact with them."
+msgstr "Controlla il comportamento delle notifiche quando ci interagisci."
+
+#: prefs.js:521
+msgid "Open match page on click"
+msgstr "Apri la pagina della partita al clic"
+
+#: prefs.js:522
+msgid "Clicking a notification opens the match page in your browser."
+msgstr ""
+"Facendo clic su una notifica si apre la pagina della partita nel browser."
+
+#: prefs.js:529
 msgid "Actions"
 msgstr "Azioni"
 
-#: prefs.js:520
+#: prefs.js:534
 msgid "Force a check now"
 msgstr "Forza un controllo"
 
-#: prefs.js:521
+#: prefs.js:535
 msgid "Asks the background poller to refresh match data immediately."
 msgstr ""
 "Chiede al poller in background di aggiornare i dati delle partite "
 "immediatamente."
 
-#: prefs.js:524
+#: prefs.js:538
 msgid "Check now"
 msgstr "Controlla ora"
 
-#: prefs.js:541
+#: prefs.js:555
 msgid "Catalog not loaded yet"
 msgstr "Catalogo non ancora caricato"
 
-#: prefs.js:542
+#: prefs.js:556
 msgid "Catalog loaded"
 msgstr "Catalogo caricato"
 
-#: prefs.js:548
+#: prefs.js:562
 msgid "Press \"Refresh now\" to load leagues and teams."
 msgstr "Premi «Aggiorna ora» per caricare campionati e squadre."
 
-#: prefs.js:553 prefs.js:554
+#: prefs.js:567 prefs.js:568
 msgid "Last refreshed"
 msgstr "Ultimo aggiornamento"
 
-#: prefs.js:554
+#: prefs.js:568
 msgid "refresh recommended"
 msgstr "aggiornamento consigliato"
 
-#: prefs.js:591
+#: prefs.js:605
 msgid "Loading catalog…"
 msgstr "Caricamento catalogo…"
 
-#: prefs.js:592 prefs.js:604
+#: prefs.js:606 prefs.js:618
 msgid "Fetching leagues and teams"
 msgstr "Recupero campionati e squadre"
 
-#: lib/notifier.js:104
+#: lib/notifier.js:110
 msgid "Home"
 msgstr "Casa"
 
-#: lib/notifier.js:105
+#: lib/notifier.js:111
 msgid "Away"
 msgstr "Trasferta"
 
-#: lib/notifier.js:119
+#: lib/notifier.js:125
 msgid "Upcoming match"
 msgstr "Prossima partita"
 
-#: lib/notifier.js:123
+#: lib/notifier.js:129
 msgid "Kick-off at"
 msgstr "Calcio d'inizio alle"
 
-#: lib/notifier.js:130
+#: lib/notifier.js:136
 msgid "Kick-off"
 msgstr "Calcio d'inizio"
 
-#: lib/notifier.js:136
+#: lib/notifier.js:142
 msgid "GOAL"
 msgstr "GOL!"
 
-#: lib/notifier.js:146
+#: lib/notifier.js:152
 msgid "Goal disallowed"
 msgstr "Gol annullato"
 
-#: lib/notifier.js:155
+#: lib/notifier.js:161
 msgid "%(in)s replaces %(out)s"
 msgstr "%(in)s sostituisce %(out)s"
 
-#: lib/notifier.js:191
+#: lib/notifier.js:197
 msgid "Half-time"
 msgstr "Intervallo"
 
-#: lib/notifier.js:197
+#: lib/notifier.js:203
 msgid "Second half"
 msgstr "Secondo tempo"
 
-#: lib/notifier.js:221
+#: lib/notifier.js:227
 msgid "Match update"
 msgstr "Aggiornamento partita"
 

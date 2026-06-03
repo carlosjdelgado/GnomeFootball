@@ -22,9 +22,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **Mexico**: Liga MX, Liga de Expansión MX.
   - **Colombia**: Categoría Primera A, Categoría Primera B, Copa Colombia.
   - **Chile**: Primera División, Copa Chile.
-- Clicking a notification now opens that match's page (ESPN gamecast) in the
+- Clicking a notification opens that match's page (ESPN gamecast) in the
   default browser. Works for every event type; the notification stays in the
-  tray after the click.
+  tray after the click. Controlled by the new `open-match-page-on-click`
+  toggle (**on by default**) under **General → Notifications** in preferences,
+  so it can be turned off. Translated into all bundled locales (de, es, fr,
+  it, pt).
 
 ## [1.1.2] - TBD
 

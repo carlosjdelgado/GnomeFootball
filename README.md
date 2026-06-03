@@ -33,8 +33,9 @@ GNOME Extensions preferences window.
   before a subscribed match kicks off. A configurable lead time (5–180
   minutes, default 30) controls how far ahead it fires, and it fires once per
   match.
-- Click-to-open: clicking any notification opens that match's page in your
-  default browser. The notification stays in the tray after the click.
+- Click-to-open (on by default): clicking any notification opens that match's
+  page in your default browser, and the notification stays in the tray after
+  the click. Toggle it off under **General → Notifications** in preferences.
 - Per-competition subscriptions, with two modes:
   - **All matches** in a league.
   - **Specific teams** — receive only matches that include any of the teams you
@@ -163,8 +164,10 @@ You'll find three pages:
   one switch per in-match notification type: match start, goal, yellow card,
   red card, substitution, half-time, second-half start, full-time, extra time
   and penalty shootout.
-- **General.** Polling interval (1–30 min) and a **Check now** button that
-  forces an immediate tick.
+- **General.** Polling interval (1–30 min), a **Notifications** card with an
+  **Open match page on click** switch (on by default) that controls whether
+  clicking a notification opens the match page in your browser, and a **Check
+  now** button that forces an immediate tick.
 
 That's it. Once you have at least one subscription, the extension will start
 polling and surfacing notifications as matches happen.
