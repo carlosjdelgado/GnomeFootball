@@ -7,6 +7,7 @@ import {
     compareMatchViews,
     compareWithinCompetition,
     groupMatchesByCompetition,
+    matchPassesSubscription,
     matchViewPassesSubscription,
     teamAbbrev,
 } from '../../lib/match-model.js';
@@ -149,6 +150,25 @@ print('groupMatchesByCompetition');
     eq('within-laliga', groups[0].matches.map(m => m.eventId), ['2', '3', '1']);
     // Within Premier League: played (5) -> upcoming (6).
     eq('within-epl', groups[2].matches.map(m => m.eventId), ['5', '6']);
+}
+
+// --- matchPassesSubscription: same rules over a raw scoreboard event ---------
+print('matchPassesSubscription');
+{
+    const event = { competitions: [{ competitors: [{ id: 1 }, { id: 2 }] }] };
+
+    check('no-subscription', matchPassesSubscription(event, undefined) === false);
+    check('all-mode', matchPassesSubscription(event, { mode: 'all' }) === true);
+    // Team ids are coerced to strings before comparing.
+    check('teams-match',
+        matchPassesSubscription(event, { mode: 'teams', teams: ['2'] }) === true);
+    check('teams-no-match',
+        matchPassesSubscription(event, { mode: 'teams', teams: ['99'] }) === false);
+    check('teams-empty',
+        matchPassesSubscription(event, { mode: 'teams', teams: [] }) === false);
+    // No competitors → nothing to match.
+    check('no-competitors',
+        matchPassesSubscription({ competitions: [] }, { mode: 'teams', teams: ['1'] }) === false);
 }
 
 // --- matchViewPassesSubscription: re-filter a view by current subscription ---
