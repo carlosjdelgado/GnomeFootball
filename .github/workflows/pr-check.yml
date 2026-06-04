@@ -44,3 +44,26 @@ jobs:
             jq '.findings' shexli.json
             exit 1
           fi
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    # memory backend avoids needing a D-Bus session; the desktop schema below is
+    # still required so Gio.Settings('org.gnome.desktop.interface') resolves
+    # (theme.isDarkTheme), otherwise GLib aborts the process.
+    env:
+      GSETTINGS_BACKEND: memory
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install gjs and desktop schemas
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            gjs \
+            gsettings-desktop-schemas \
+            libglib2.0-bin
+          sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+
+      - name: Run unit tests
+        run: ./tests/unit/run.sh
