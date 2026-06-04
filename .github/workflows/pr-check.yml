@@ -61,6 +61,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             gjs \
+            gir1.2-soup-3.0 \
             gsettings-desktop-schemas \
             libglib2.0-bin
           sudo glib-compile-schemas /usr/share/glib-2.0/schemas
