@@ -14,25 +14,20 @@ export default class GnomeFootballExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
 
-        // Per-match mute (Feature 3): one controller shared by the notifier
-        // (mute action button), the poller (suppress + auto-expire) and the
-        // panel (per-row bell + Mute-all). Load persisted mutes asynchronously;
-        // it starts empty and fills in once load() resolves.
+        // One mute controller shared by the notifier, poller and panel. Persisted
+        // mutes load asynchronously; it starts empty until load() resolves.
         this._mute = new MuteController({
             isDefaultMuted: () => this._settings.get_boolean('mute-matches-by-default'),
         });
         this._mute.load().catch(e =>
             console.warn(`[GnomeFootball] mute load failed: ${e.message}`));
-        // Flipping "mute by default" must take effect live (no relogin): re-render
-        // the panel and re-evaluate suppression for matches without an override.
+        // Apply "mute by default" flips live (no relogin needed).
         this._muteDefaultChangedId = this._settings.connect(
             'changed::mute-matches-by-default', () => this._mute.notifyDefaultChanged());
 
         initNotifier(this.path, this._settings, this._mute);
         this._poller = new Poller(this._settings, this._mute);
 
-        // Calendar panel (Feature 1): consumes the poller's live "today"
-        // snapshot and the date-aware data layer for other days.
         this._dataProvider = new MatchDataProvider(this._settings);
         this._panel = new CalendarPanel({
             settings: this._settings,
