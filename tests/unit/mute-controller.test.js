@@ -47,7 +47,9 @@ async function main() {
 
         mc.mute('100'); // idempotent
         eq('id-coerced-to-string', s.state.data, { '100': s.state.data['100'] });
-        check('mute-persisted', typeof s.state.data['100'] === 'number');
+        check('mute-persisted',
+            s.state.data['100']?.muted === true &&
+            typeof s.state.data['100']?.at === 'number');
 
         mc.unmute('100');
         check('not-muted-after-unmute', mc.isMuted('100') === false);
@@ -157,6 +159,66 @@ async function main() {
         unsub();
         mc.unmute('1');
         check('no-fire-after-unsubscribe', calls === 3);
+    }
+
+    // --- mute-by-default: ambient default flips the base state -------------
+    print('mute-by-default');
+    {
+        const s = makeStorage();
+        let def = true;
+        const mc = new MuteController({
+            readJson: s.readJson, writeJson: s.writeJson,
+            isDefaultMuted: () => def,
+        });
+        // With the default on, an untouched match is muted.
+        check('default-muted', mc.isMuted('x') === true);
+        check('areAllMuted-default', mc.areAllMuted(['x', 'y']) === true);
+
+        // Un-muting stores an explicit override (a deviation from the default).
+        mc.unmute('x');
+        check('explicit-unmute', mc.isMuted('x') === false);
+        eq('override-persisted-unmuted', s.state.data['x']?.muted, false);
+
+        // Muting again drops the override (it now matches the default).
+        const writes = s.state.writes;
+        mc.mute('x');
+        check('back-to-default-muted', mc.isMuted('x') === true);
+        check('override-dropped', s.state.data['x'] === undefined);
+        check('drop-persisted', s.state.writes === writes + 1);
+
+        // toggle respects the default as the starting state.
+        mc.toggle('z'); // muted (default) -> un-muted
+        check('toggle-from-default', mc.isMuted('z') === false);
+    }
+
+    // --- flipping the default keeps explicit overrides intact --------------
+    print('flip default preserves overrides');
+    {
+        const s = makeStorage();
+        let def = false;
+        const mc = new MuteController({
+            readJson: s.readJson, writeJson: s.writeJson,
+            isDefaultMuted: () => def,
+        });
+        mc.mute('kept'); // explicit mute under default-off
+        check('muted-under-off', mc.isMuted('kept') === true);
+
+        // Turn the default on. The explicit mute must remain a mute; an untouched
+        // match now follows the new default (muted too).
+        def = true;
+        mc.notifyDefaultChanged();
+        check('explicit-mute-survives-flip', mc.isMuted('kept') === true);
+        check('untouched-follows-new-default', mc.isMuted('other') === true);
+
+        // The now-redundant override (muted == default) is pruned.
+        check('redundant-override-pruned', s.state.data['kept'] === undefined);
+
+        // Un-muting under the new default works and survives a flip back.
+        mc.unmute('kept');
+        check('unmute-under-on', mc.isMuted('kept') === false);
+        def = false;
+        mc.notifyDefaultChanged();
+        check('explicit-unmute-survives-flip', mc.isMuted('kept') === false);
     }
 
     print('');

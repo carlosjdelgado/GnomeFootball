@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnomefootball 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-03 07:58+0200\n"
+"POT-Creation-Date: 2026-06-04 08:05+0200\n"
 "PO-Revision-Date: 2026-05-16 00:00+0000\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
@@ -84,15 +84,15 @@ msgstr "Inicio del partido"
 msgid "Goal"
 msgstr "Gol"
 
-#: prefs.js:59 lib/notifier.js:177
+#: prefs.js:59 lib/notifier.js:179
 msgid "Yellow card"
 msgstr "Tarjeta amarilla"
 
-#: prefs.js:60 lib/notifier.js:187
+#: prefs.js:60 lib/notifier.js:189
 msgid "Red card"
 msgstr "Tarjeta roja"
 
-#: prefs.js:61 lib/notifier.js:165
+#: prefs.js:61 lib/notifier.js:167
 msgid "Substitution"
 msgstr "Sustitución"
 
@@ -104,15 +104,15 @@ msgstr "Fin del primer tiempo"
 msgid "Second half starts"
 msgstr "Inicio del segundo tiempo"
 
-#: prefs.js:64 lib/notifier.js:209
+#: prefs.js:64 lib/notifier.js:211
 msgid "Full-time"
 msgstr "Final del partido"
 
-#: prefs.js:65 lib/notifier.js:215
+#: prefs.js:65 lib/notifier.js:217
 msgid "Extra time"
 msgstr "Prórroga"
 
-#: prefs.js:66 lib/notifier.js:221
+#: prefs.js:66 lib/notifier.js:223
 msgid "Penalty shootout"
 msgstr "Tanda de penaltis"
 
@@ -230,7 +230,8 @@ msgstr "Notificaciones"
 
 #: prefs.js:516
 msgid "Control how notifications behave when you interact with them."
-msgstr "Controla cómo se comportan las notificaciones al interactuar con ellas."
+msgstr ""
+"Controla cómo se comportan las notificaciones al interactuar con ellas."
 
 #: prefs.js:521
 msgid "Open match page on click"
@@ -238,97 +239,111 @@ msgstr "Abrir la página del partido al hacer clic"
 
 #: prefs.js:522
 msgid "Clicking a notification opens the match page in your browser."
-msgstr "Al hacer clic en una notificación se abre la página del partido en tu navegador."
+msgstr ""
+"Al hacer clic en una notificación se abre la página del partido en tu "
+"navegador."
 
 #: prefs.js:529
+msgid "Mute matches by default"
+msgstr "Silenciar los partidos por defecto"
+
+#: prefs.js:530
+msgid "No match notifies until you un-mute it from the calendar panel."
+msgstr "Ningún partido notifica hasta que lo reactives desde el panel del calendario."
+
+#: prefs.js:537
 msgid "Actions"
 msgstr "Acciones"
 
-#: prefs.js:534
+#: prefs.js:542
 msgid "Force a check now"
 msgstr "Forzar una comprobación"
 
-#: prefs.js:535
+#: prefs.js:543
 msgid "Asks the background poller to refresh match data immediately."
 msgstr ""
 "Pide al sondeo en segundo plano que actualice los datos de los partidos de "
 "inmediato."
 
-#: prefs.js:538
+#: prefs.js:546
 msgid "Check now"
 msgstr "Comprobar ahora"
 
-#: prefs.js:555
+#: prefs.js:563
 msgid "Catalog not loaded yet"
 msgstr "Catálogo aún no cargado"
 
-#: prefs.js:556
+#: prefs.js:564
 msgid "Catalog loaded"
 msgstr "Catálogo cargado"
 
-#: prefs.js:562
+#: prefs.js:570
 msgid "Press \"Refresh now\" to load leagues and teams."
 msgstr "Pulsa «Actualizar ahora» para cargar las ligas y equipos."
 
-#: prefs.js:567 prefs.js:568
+#: prefs.js:575 prefs.js:576
 msgid "Last refreshed"
 msgstr "Última actualización"
 
-#: prefs.js:568
+#: prefs.js:576
 msgid "refresh recommended"
 msgstr "se recomienda actualizar"
 
-#: prefs.js:605
+#: prefs.js:613
 msgid "Loading catalog…"
 msgstr "Cargando catálogo…"
 
-#: prefs.js:606 prefs.js:618
+#: prefs.js:614 prefs.js:626
 msgid "Fetching leagues and teams"
 msgstr "Obteniendo ligas y equipos"
 
-#: lib/notifier.js:110
+#: lib/notifier.js:112
 msgid "Home"
 msgstr "Local"
 
-#: lib/notifier.js:111
+#: lib/notifier.js:113
 msgid "Away"
 msgstr "Visitante"
 
-#: lib/notifier.js:125
+#: lib/notifier.js:127
 msgid "Upcoming match"
 msgstr "Próximo partido"
 
-#: lib/notifier.js:129
+#: lib/notifier.js:131
 msgid "Kick-off at"
 msgstr "Comienza a las"
 
-#: lib/notifier.js:136
+#: lib/notifier.js:138
 msgid "Kick-off"
 msgstr "Inicio del partido"
 
-#: lib/notifier.js:142
+#: lib/notifier.js:144
 msgid "GOAL"
 msgstr "¡GOL!"
 
-#: lib/notifier.js:152
+#: lib/notifier.js:154
 msgid "Goal disallowed"
 msgstr "Gol anulado"
 
-#: lib/notifier.js:161
+#: lib/notifier.js:163
 msgid "%(in)s replaces %(out)s"
 msgstr "%(in)s reemplaza a %(out)s"
 
-#: lib/notifier.js:197
+#: lib/notifier.js:199
 msgid "Half-time"
 msgstr "Descanso"
 
-#: lib/notifier.js:203
+#: lib/notifier.js:205
 msgid "Second half"
 msgstr "Segundo tiempo"
 
-#: lib/notifier.js:227
+#: lib/notifier.js:229
 msgid "Match update"
 msgstr "Actualización del partido"
+
+#: lib/notifier.js:280
+msgid "Mute match"
+msgstr "Silenciar partido"
 
 #~ msgid "Teams"
 #~ msgstr "Equipos"

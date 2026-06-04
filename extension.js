@@ -18,9 +18,15 @@ export default class GnomeFootballExtension extends Extension {
         // (mute action button), the poller (suppress + auto-expire) and the
         // panel (per-row bell + Mute-all). Load persisted mutes asynchronously;
         // it starts empty and fills in once load() resolves.
-        this._mute = new MuteController();
+        this._mute = new MuteController({
+            isDefaultMuted: () => this._settings.get_boolean('mute-matches-by-default'),
+        });
         this._mute.load().catch(e =>
             console.warn(`[GnomeFootball] mute load failed: ${e.message}`));
+        // Flipping "mute by default" must take effect live (no relogin): re-render
+        // the panel and re-evaluate suppression for matches without an override.
+        this._muteDefaultChangedId = this._settings.connect(
+            'changed::mute-matches-by-default', () => this._mute.notifyDefaultChanged());
 
         initNotifier(this.path, this._settings, this._mute);
         this._poller = new Poller(this._settings, this._mute);
@@ -55,6 +61,10 @@ export default class GnomeFootballExtension extends Extension {
             this._dataProvider = null;
         }
         disposeNotifier();
+        if (this._muteDefaultChangedId) {
+            this._settings.disconnect(this._muteDefaultChangedId);
+            this._muteDefaultChangedId = null;
+        }
         if (this._mute) {
             this._mute.dispose();
             this._mute = null;
