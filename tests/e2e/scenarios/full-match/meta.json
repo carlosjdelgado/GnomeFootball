@@ -4,94 +4,104 @@
   "eventId": "315488",
   "steps": [
     {
-      "step": 0,
+      "label": "PANEL · YESTERDAY (finished) — open the date menu, click the previous day",
+      "expected": "Selecting yesterday shows 1 finished match: RMA 3-1 SEV (minute column blank). Today is empty.",
+      "scoreboard": "scoreboard-past.json",
+      "injectDate": "-1 day"
+    },
+    {
+      "label": "PANEL · TOMORROW (upcoming) — click the next day in the calendar",
+      "expected": "Selecting tomorrow shows 1 upcoming match: FCB vs ATM with its kick-off time (minute column blank). Today is empty.",
+      "scoreboard": "scoreboard-future.json",
+      "injectDate": "+1 day"
+    },
+    {
       "label": "PRE-MATCH — Real Madrid vs FC Barcelona (kick-off in ~25 min)",
-      "expected": "If reminder switch ON (lead >= 25 min): 'Upcoming match' reminder. If switch OFF: no notification (match not yet in watch window)",
+      "expected": "If reminder switch ON (lead >= 25 min): 'Upcoming match' reminder for Madrid-Barça only. If switch OFF: no notification. Panel today already shows 3 matches: upcoming RMA-FCB, finished ATM 1-0 SEV, upcoming VAL-GIR (+4h).",
       "scoreboard": "scoreboard-000.json",
-      "injectDate": "+25 minutes"
+      "injectDate": "+25 minutes, -3 hours, +4 hours"
     },
     {
-      "step": 1,
       "label": "PRE-MATCH again — kick-off now in ~5 min (inside the 10-min watch window)",
-      "expected": "No notification. Reminder ON: already sent, no refire. Reminder OFF: silent, but this records the PRE baseline so MATCH_START fires next",
+      "expected": "No notification. Reminder ON: already sent, no refire. Reminder OFF: silent, but this records the PRE baseline so MATCH_START fires next. Panel today still shows the 3 matches.",
       "scoreboard": "scoreboard-000.json",
-      "injectDate": "+5 minutes"
+      "injectDate": "+5 minutes, -3 hours, +4 hours"
     },
     {
-      "step": 2,
       "label": "MATCH_START — match begins",
-      "expected": "Notification: match started (reminder does not re-fire)",
+      "expected": "Notification: match started (reminder does not re-fire). Panel today now shows 3 matches: live RMA-FCB with its minute, finished ATM 1-0 SEV (3h ago), upcoming VAL-GIR (4h ahead).",
       "scoreboard": "scoreboard-001.json",
-      "summary": "summary-001.json"
+      "summary": "summary-001.json",
+      "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "step": 3,
       "label": "GOAL — Vinícius Júnior (12', Real Madrid 1-0)",
       "expected": "Notification: goal Real Madrid",
       "scoreboard": "scoreboard-002.json",
-      "summary": "summary-002.json"
+      "summary": "summary-002.json",
+      "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "step": 4,
       "label": "GOAL_DISALLOWED — VAR disallows goal (back to 0-0)",
       "expected": "Notification: goal disallowed",
       "scoreboard": "scoreboard-003.json",
-      "summary": "summary-003.json"
+      "summary": "summary-003.json",
+      "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "step": 5,
       "label": "YELLOW_CARD — Pedri (35', FC Barcelona)",
       "expected": "Notification: yellow card Pedri",
       "scoreboard": "scoreboard-004.json",
-      "summary": "summary-004.json"
+      "summary": "summary-004.json",
+      "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "step": 6,
       "label": "HALF_TIME_END — half time (0-0)",
       "expected": "Notification: half time",
       "scoreboard": "scoreboard-005.json",
-      "summary": "summary-005.json"
+      "summary": "summary-005.json",
+      "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "step": 7,
       "label": "SECOND_HALF_START — second half begins",
       "expected": "Notification: second half",
       "scoreboard": "scoreboard-006.json",
-      "summary": "summary-006.json"
+      "summary": "summary-006.json",
+      "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "step": 8,
       "label": "RED_CARD — Frenkie de Jong (75', FC Barcelona)",
       "expected": "Notification: red card de Jong",
       "scoreboard": "scoreboard-007.json",
-      "summary": "summary-007.json"
+      "summary": "summary-007.json",
+      "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "step": 9,
       "label": "SUBSTITUTION — Valverde on, Modrić off (80', Real Madrid)",
       "expected": "Notification: substitution",
       "scoreboard": "scoreboard-008.json",
-      "summary": "summary-008.json"
+      "summary": "summary-008.json",
+      "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "step": 10,
       "label": "EXTRA_TIME — extra time (90+3')",
       "expected": "Notification: extra time",
       "scoreboard": "scoreboard-009.json",
-      "summary": "summary-009.json"
+      "summary": "summary-009.json",
+      "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "step": 11,
       "label": "PENALTIES — penalty shootout",
       "expected": "Notification: penalties",
       "scoreboard": "scoreboard-010.json",
-      "summary": "summary-010.json"
+      "summary": "summary-010.json",
+      "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "step": 12,
       "label": "MATCH_END — final whistle",
-      "expected": "Notification: match ended",
-      "scoreboard": "scoreboard-011.json"
+      "expected": "Notification: match ended. Panel today: Madrid-Barça now finished alongside the other two.",
+      "scoreboard": "scoreboard-011.json",
+      "injectDate": "now, -3 hours, +4 hours"
     }
   ]
 }

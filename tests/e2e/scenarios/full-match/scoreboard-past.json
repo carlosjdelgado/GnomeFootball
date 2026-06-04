@@ -1,0 +1,68 @@
+{
+  "leagues": [
+    {
+      "id": "15",
+      "name": "UEFA Champions League",
+      "logos": [
+        {
+          "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png",
+          "rel": [
+            "full",
+            "default"
+          ]
+        },
+        {
+          "href": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png",
+          "rel": [
+            "full",
+            "dark"
+          ]
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "990004",
+      "date": "2026-05-15T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "103",
+              "homeAway": "home",
+              "score": "2",
+              "team": {
+                "displayName": "AC Milan",
+                "shortDisplayName": "Milan",
+                "abbreviation": "MIL",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png"
+              }
+            },
+            {
+              "id": "124",
+              "homeAway": "away",
+              "score": "1",
+              "team": {
+                "displayName": "Borussia Dortmund",
+                "shortDisplayName": "Dortmund",
+                "abbreviation": "DOR",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -87,11 +87,29 @@ load_step() {
     summary=$(jq -r ".steps[$idx].summary // empty" "$META")
     inject_date=$(jq -r ".steps[$idx].injectDate // empty" "$META")
 
+    # injectDate sets event dates. A single value (e.g. "+25 minutes") applies to
+    # EVERY event. A comma-separated list (e.g. "+25 minutes, -3 hours, +4 hours") maps each
+    # offset to the event at the same index, so a multi-match fixture can give each
+    # match its own time (finished / live / upcoming). Each consumer filters by
+    # local day, so the panel reads other days off the same scoreboard.json.
     if [[ -n "$inject_date" ]]; then
-        local d
-        d=$(date -u -d "$inject_date" '+%Y-%m-%dT%H:%M:%SZ')
-        jq --arg d "$d" '.events[0].date = $d' \
-            "$SCENARIO_DIR/$scoreboard" > "$OVERRIDE_DIR/scoreboard.json"
+        local -a offsets=()
+        IFS=',' read -ra offsets <<< "$inject_date"
+        if [[ ${#offsets[@]} -le 1 ]]; then
+            local d
+            d=$(date -u -d "$(echo "${offsets[0]}" | xargs)" '+%Y-%m-%dT%H:%M:%SZ')
+            jq --arg d "$d" '.events[].date = $d' \
+                "$SCENARIO_DIR/$scoreboard" > "$OVERRIDE_DIR/scoreboard.json"
+        else
+            local dates_json='[]' off d
+            for off in "${offsets[@]}"; do
+                d=$(date -u -d "$(echo "$off" | xargs)" '+%Y-%m-%dT%H:%M:%SZ')
+                dates_json=$(jq -c --arg d "$d" '. + [$d]' <<< "$dates_json")
+            done
+            jq --argjson dates "$dates_json" \
+                '.events |= [range(0; length) as $i | .[$i] | .date = ($dates[$i] // .date)]' \
+                "$SCENARIO_DIR/$scoreboard" > "$OVERRIDE_DIR/scoreboard.json"
+        fi
     else
         cp "$SCENARIO_DIR/$scoreboard" "$OVERRIDE_DIR/scoreboard.json"
     fi

@@ -1,0 +1,68 @@
+{
+  "leagues": [
+    {
+      "id": "15",
+      "name": "UEFA Champions League",
+      "logos": [
+        {
+          "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png",
+          "rel": [
+            "full",
+            "default"
+          ]
+        },
+        {
+          "href": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png",
+          "rel": [
+            "full",
+            "dark"
+          ]
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "990005",
+      "date": "2026-05-17T19:00:00Z",
+      "status": {
+        "period": 0,
+        "type": {
+          "id": "1",
+          "state": "pre",
+          "description": "Scheduled",
+          "detail": "Sun, May 17 at 7:00 PM",
+          "shortDetail": "Sun 7:00 PM"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "160",
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "displayName": "Paris Saint-Germain",
+                "shortDisplayName": "PSG",
+                "abbreviation": "PSG",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png"
+              }
+            },
+            {
+              "id": "114",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "displayName": "Napoli",
+                "shortDisplayName": "Napoli",
+                "abbreviation": "NAP",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

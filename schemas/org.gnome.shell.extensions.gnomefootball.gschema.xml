@@ -83,6 +83,12 @@
       <description>Send a notification when a penalty shootout begins and for each penalty.</description>
     </key>
 
+    <key name="show-today-panel" type="b">
+      <default>true</default>
+      <summary>Show matches in the calendar panel</summary>
+      <description>When enabled, the GNOME calendar (date menu) shows the subscribed matches for the selected day. Enabled by default.</description>
+    </key>
+
     <key name="open-match-page-on-click" type="b">
       <default>true</default>
       <summary>Open match page when a notification is clicked</summary>

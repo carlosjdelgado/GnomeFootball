@@ -4,8 +4,20 @@
       "id": "15",
       "name": "UEFA Champions League",
       "logos": [
-        { "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png", "rel": ["full", "default"] },
-        { "href": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png", "rel": ["full", "dark"] }
+        {
+          "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png",
+          "rel": [
+            "full",
+            "default"
+          ]
+        },
+        {
+          "href": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png",
+          "rel": [
+            "full",
+            "dark"
+          ]
+        }
       ]
     }
   ],
@@ -46,6 +58,90 @@
                 "shortDisplayName": "Barcelona",
                 "abbreviation": "FCB",
                 "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990002",
+      "date": "2026-05-16T14:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "132",
+              "homeAway": "home",
+              "score": "3",
+              "team": {
+                "displayName": "Bayern Munich",
+                "shortDisplayName": "Bayern",
+                "abbreviation": "BAY",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png"
+              }
+            },
+            {
+              "id": "364",
+              "homeAway": "away",
+              "score": "2",
+              "team": {
+                "displayName": "Liverpool",
+                "shortDisplayName": "Liverpool",
+                "abbreviation": "LIV",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990003",
+      "date": "2026-05-16T20:00:00Z",
+      "status": {
+        "period": 0,
+        "type": {
+          "id": "1",
+          "state": "pre",
+          "description": "Scheduled",
+          "detail": "Sat, May 16 at 8:00 PM",
+          "shortDetail": "Sat 8:00 PM"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "382",
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "displayName": "Manchester City",
+                "shortDisplayName": "Man City",
+                "abbreviation": "MCI",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png"
+              }
+            },
+            {
+              "id": "110",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "displayName": "Internazionale",
+                "shortDisplayName": "Inter",
+                "abbreviation": "INT",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png"
               }
             }
           ]

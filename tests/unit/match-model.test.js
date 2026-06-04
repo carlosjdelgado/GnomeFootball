@@ -1,7 +1,14 @@
 // Unit tests for lib/match-model.js — run with: gjs -m tests/unit/match-model.test.js
 // match-model.js is GJS/Gio-free on purpose, so this needs no shell environment.
 
-import { toMatchView, localDateKey, compareMatchViews } from '../../lib/match-model.js';
+import {
+    toMatchView,
+    localDateKey,
+    compareMatchViews,
+    compareWithinCompetition,
+    groupMatchesByCompetition,
+    matchViewPassesSubscription,
+} from '../../lib/match-model.js';
 
 let failures = 0;
 function check(name, cond) {
@@ -93,6 +100,76 @@ print('compareMatchViews');
     const sorted = [...list].sort(compareMatchViews).map(m => m.eventId);
     // live (2) first; then by kickoff among the rest: 3 (1000), 4 (2000), 1 (3000)
     eq('order', sorted, ['2', '3', '4', '1']);
+}
+
+// --- compareWithinCompetition: live -> played -> upcoming, then kickoff ------
+print('compareWithinCompetition');
+{
+    const mk = (id, state, kickoffMs) => ({ eventId: String(id), state, kickoffMs });
+    const list = [
+        mk(1, 'pre', 1000),   // upcoming, earliest kickoff
+        mk(2, 'post', 9000),  // played
+        mk(3, 'in', 8000),    // live, later kickoff
+        mk(4, 'in', 7000),    // live, earlier kickoff
+        mk(5, 'post', 2000),  // played, earlier kickoff
+    ];
+    const sorted = [...list].sort(compareWithinCompetition).map(m => m.eventId);
+    // live by kickoff (4 then 3), then played by kickoff (5 then 2), then pre (1)
+    eq('order', sorted, ['4', '3', '5', '2', '1']);
+}
+
+// --- groupMatchesByCompetition: live comps first, then alphabetical ----------
+print('groupMatchesByCompetition');
+{
+    // leagueName here is the ESPN name; the grouping must override it with the
+    // catalog's commercial defaultName (esp.1 -> "LaLiga", etc.).
+    const mk = (id, slug, state, kickoffMs) => ({
+        eventId: String(id), leagueSlug: slug, leagueName: `espn-${slug}`,
+        leagueLogo: `${slug}.png`, state, kickoffMs,
+    });
+    const list = [
+        mk(1, 'esp.1', 'pre', 3000),
+        mk(2, 'esp.1', 'in', 5000),
+        mk(3, 'esp.1', 'post', 1000),
+        mk(4, 'ita.1', 'in', 2000),     // Serie A: has live
+        mk(5, 'eng.1', 'post', 4000),   // Premier League: no live
+        mk(6, 'eng.1', 'pre', 6000),
+    ];
+    const groups = groupMatchesByCompetition(list);
+
+    // Live competitions first (alphabetical: LaLiga < Serie A), then the rest
+    // (Premier League).
+    eq('group-order', groups.map(g => g.name), ['LaLiga', 'Serie A', 'Premier League']);
+    eq('commercial-name', groups[0].name, 'LaLiga'); // not "espn-esp.1"
+    eq('hasLive-flags', groups.map(g => g.hasLive), [true, true, false]);
+    eq('group-logo', groups[0].logo, 'esp.1.png');
+
+    // Within LaLiga: live (2) -> played (3) -> upcoming (1).
+    eq('within-laliga', groups[0].matches.map(m => m.eventId), ['2', '3', '1']);
+    // Within Premier League: played (5) -> upcoming (6).
+    eq('within-epl', groups[2].matches.map(m => m.eventId), ['5', '6']);
+}
+
+// --- matchViewPassesSubscription: re-filter a view by current subscription ---
+print('matchViewPassesSubscription');
+{
+    const view = { leagueSlug: 'esp.1', home: { id: '1' }, away: { id: '2' } };
+
+    // No subscription for the league -> filtered out (the unsubscribe case).
+    check('no-subscription', matchViewPassesSubscription(view, undefined) === false);
+
+    // ALL mode keeps every match in the league.
+    check('all-mode', matchViewPassesSubscription(view, { mode: 'all' }) === true);
+
+    // TEAMS mode keeps a match only when one of its teams is selected.
+    check('teams-home-match',
+        matchViewPassesSubscription(view, { mode: 'teams', teams: ['1'] }) === true);
+    check('teams-away-match',
+        matchViewPassesSubscription(view, { mode: 'teams', teams: ['2'] }) === true);
+    check('teams-no-match',
+        matchViewPassesSubscription(view, { mode: 'teams', teams: ['99'] }) === false);
+    check('teams-empty',
+        matchViewPassesSubscription(view, { mode: 'teams', teams: [] }) === false);
 }
 
 print('');
