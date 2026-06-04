@@ -5,19 +5,19 @@
   "steps": [
     {
       "label": "PANEL · YESTERDAY (finished) — open the date menu, click the previous day",
-      "expected": "Selecting yesterday shows 1 finished match: RMA 3-1 SEV (minute column blank). Today is empty.",
+      "expected": "Selecting yesterday shows 1 finished match: MIL 2-1 DOR (minute column blank). Today is empty.",
       "scoreboard": "scoreboard-past.json",
       "injectDate": "-1 day"
     },
     {
       "label": "PANEL · TOMORROW (upcoming) — click the next day in the calendar",
-      "expected": "Selecting tomorrow shows 1 upcoming match: FCB vs ATM with its kick-off time (minute column blank). Today is empty.",
+      "expected": "Selecting tomorrow shows 1 upcoming match: PSG vs NAP with its kick-off time (minute column blank). Today is empty.",
       "scoreboard": "scoreboard-future.json",
       "injectDate": "+1 day"
     },
     {
       "label": "PRE-MATCH — Real Madrid vs FC Barcelona (kick-off in ~25 min)",
-      "expected": "If reminder switch ON (lead >= 25 min): 'Upcoming match' reminder for Madrid-Barça only. If switch OFF: no notification. Panel today already shows 3 matches: upcoming RMA-FCB, finished ATM 1-0 SEV, upcoming VAL-GIR (+4h).",
+      "expected": "If reminder switch ON (lead >= 25 min): 'Upcoming match' reminder for Madrid-Barça only. If switch OFF: no notification. Panel today already shows 3 matches: upcoming RMA-FCB, finished BAY 3-2 LIV, upcoming MCI vs INT (+4h).",
       "scoreboard": "scoreboard-000.json",
       "injectDate": "+25 minutes, -3 hours, +4 hours"
     },
@@ -29,7 +29,7 @@
     },
     {
       "label": "MATCH_START — match begins",
-      "expected": "Notification: match started (reminder does not re-fire). Panel today now shows 3 matches: live RMA-FCB with its minute, finished ATM 1-0 SEV (3h ago), upcoming VAL-GIR (4h ahead).",
+      "expected": "Notification: match started (reminder does not re-fire). Panel today now shows 3 matches: live RMA-FCB with its minute, finished BAY 3-2 LIV (3h ago), upcoming MCI vs INT (4h ahead).",
       "scoreboard": "scoreboard-001.json",
       "summary": "summary-001.json",
       "injectDate": "now, -3 hours, +4 hours"
