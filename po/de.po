@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnomefootball 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-04 08:05+0200\n"
+"POT-Creation-Date: 2026-06-04 08:20+0200\n"
 "PO-Revision-Date: 2026-05-16 00:00+0000\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -248,50 +248,70 @@ msgstr "Spiele standardmäßig stummschalten"
 
 #: prefs.js:530
 msgid "No match notifies until you un-mute it from the calendar panel."
-msgstr "Kein Spiel benachrichtigt, bis du es im Kalenderbereich wieder aktivierst."
+msgstr ""
+"Kein Spiel benachrichtigt, bis du es im Kalenderbereich wieder aktivierst."
 
 #: prefs.js:537
+msgid "Calendar panel"
+msgstr "Kalenderbereich"
+
+#: prefs.js:538
+msgid ""
+"A section in the GNOME calendar (date menu) listing your subscribed matches "
+"for the selected day."
+msgstr "Ein Bereich im GNOME-Kalender (Datumsmenü), der die abonnierten Spiele für den ausgewählten Tag auflistet."
+
+#: prefs.js:543
+msgid "Show matches in the calendar"
+msgstr "Spiele im Kalender anzeigen"
+
+#: prefs.js:544
+msgid ""
+"Browse past, current and upcoming matches by day from the top-bar clock menu."
+msgstr "Vergangene, aktuelle und kommende Spiele tageweise über das Uhrmenü in der oberen Leiste durchsehen."
+
+#: prefs.js:551
 msgid "Actions"
 msgstr "Aktionen"
 
-#: prefs.js:542
+#: prefs.js:556
 msgid "Force a check now"
 msgstr "Sofortige Überprüfung erzwingen"
 
-#: prefs.js:543
+#: prefs.js:557
 msgid "Asks the background poller to refresh match data immediately."
 msgstr ""
 "Fordert die Hintergrundabfrage auf, die Spieldaten sofort zu aktualisieren."
 
-#: prefs.js:546
+#: prefs.js:560
 msgid "Check now"
 msgstr "Jetzt prüfen"
 
-#: prefs.js:563
+#: prefs.js:577
 msgid "Catalog not loaded yet"
 msgstr "Katalog noch nicht geladen"
 
-#: prefs.js:564
+#: prefs.js:578
 msgid "Catalog loaded"
 msgstr "Katalog geladen"
 
-#: prefs.js:570
+#: prefs.js:584
 msgid "Press \"Refresh now\" to load leagues and teams."
 msgstr "„Jetzt aktualisieren\" drücken, um Ligen und Mannschaften zu laden."
 
-#: prefs.js:575 prefs.js:576
+#: prefs.js:589 prefs.js:590
 msgid "Last refreshed"
 msgstr "Zuletzt aktualisiert"
 
-#: prefs.js:576
+#: prefs.js:590
 msgid "refresh recommended"
 msgstr "Aktualisierung empfohlen"
 
-#: prefs.js:613
+#: prefs.js:627
 msgid "Loading catalog…"
 msgstr "Katalog wird geladen…"
 
-#: prefs.js:614 prefs.js:626
+#: prefs.js:628 prefs.js:640
 msgid "Fetching leagues and teams"
 msgstr "Ligen und Mannschaften werden abgerufen"
 
@@ -342,6 +362,34 @@ msgstr "Spielaktualisierung"
 #: lib/notifier.js:280
 msgid "Mute match"
 msgstr "Spiel stummschalten"
+
+#: lib/calendar-panel.js:272
+msgid "Football"
+msgstr "Fußball"
+
+#: lib/calendar-panel.js:283 lib/calendar-panel.js:322
+msgid "Mute all"
+msgstr "Alle stummschalten"
+
+#: lib/calendar-panel.js:321
+msgid "Un-mute all"
+msgstr "Alle wieder einschalten"
+
+#: lib/calendar-panel.js:524
+msgid "Loading…"
+msgstr "Wird geladen…"
+
+#: lib/calendar-panel.js:536
+msgid "No matches today"
+msgstr "Heute keine Spiele"
+
+#: lib/calendar-panel.js:538
+msgid "No matches played on this day"
+msgstr "An diesem Tag wurden keine Spiele ausgetragen"
+
+#: lib/calendar-panel.js:540
+msgid "No matches scheduled for this day"
+msgstr "Für diesen Tag sind keine Spiele angesetzt"
 
 #~ msgid "Teams"
 #~ msgstr "Mannschaften"

@@ -6,7 +6,8 @@
 A GNOME Shell extension that delivers native desktop notifications for football
 (soccer) matches. It runs quietly in the background — no panel indicator, no
 tray icon — and only speaks up when something happens in a match you care
-about.
+about. It can optionally add a match panel to the GNOME calendar so you can
+browse the day's fixtures, and let you mute matches you'd rather not hear from.
 
 Data comes from a public soccer data API. Configuration lives in the standard
 GNOME Extensions preferences window.
@@ -36,6 +37,17 @@ GNOME Extensions preferences window.
 - Click-to-open (on by default): clicking any notification opens that match's
   page in your default browser, and the notification stays in the tray after
   the click. Toggle it off under **General → Notifications** in preferences.
+- Calendar match panel (on by default): a section in the GNOME calendar (the
+  top-bar date menu) lists your subscribed matches for the selected day,
+  grouped by competition, with crests, score or kick-off time, and the live
+  minute for matches in play. Browse past, current and upcoming days from the
+  calendar. Toggle it off under **General → Calendar panel** in preferences.
+- Mute matches: each notification carries a **Mute match** action and every
+  panel row has a bell toggle, so you can silence a single noisy fixture
+  without unsubscribing from its league; a **Mute all** button mutes the whole
+  day at once. Muting is transient — it auto-clears when the match finishes.
+  Optionally mute every match by default (**General → Notifications**) and
+  un-mute only the ones you want to follow.
 - Per-competition subscriptions, with two modes:
   - **All matches** in a league.
   - **Specific teams** — receive only matches that include any of the teams you
@@ -164,10 +176,13 @@ You'll find three pages:
   one switch per in-match notification type: match start, goal, yellow card,
   red card, substitution, half-time, second-half start, full-time, extra time
   and penalty shootout.
-- **General.** Polling interval (1–30 min), a **Notifications** card with an
+- **General.** Polling interval (1–30 min); a **Notifications** card with an
   **Open match page on click** switch (on by default) that controls whether
-  clicking a notification opens the match page in your browser, and a **Check
-  now** button that forces an immediate tick.
+  clicking a notification opens the match page in your browser and a **Mute
+  matches by default** switch (off by default) that silences every match until
+  you un-mute it from the calendar panel; a **Calendar panel** card with a
+  **Show matches in the calendar** switch (on by default); and a **Check now**
+  button that forces an immediate tick.
 
 That's it. Once you have at least one subscription, the extension will start
 polling and surfacing notifications as matches happen.

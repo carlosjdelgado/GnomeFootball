@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - TBD
+
+### Added
+
+- Calendar match panel. A new section in the GNOME calendar (the top-bar
+  date menu) lists your subscribed matches for the selected day, grouped by
+  competition. It is date-aware — browse past, current and upcoming days from
+  the calendar — and shows each match's crests, score or kick-off time, and
+  the live minute for matches in play. Controlled by the new
+  `show-today-panel` toggle (**on by default**) under **General → Calendar
+  panel** in preferences.
+- Per-match mute. Each match notification carries a **Mute match** action,
+  and every row in the calendar panel has a bell toggle, so you can silence a
+  noisy fixture without unsubscribing from its league. A muted match is
+  suppressed entirely (including full-time) and the mute auto-expires once the
+  match finishes.
+- Per-day mute. A **Mute all** / **Un-mute all** button in the calendar panel
+  bulk-mutes (or restores) every match currently listed for the selected day.
+- Mute matches by default. New `mute-matches-by-default` toggle
+  (**off by default**) under **General → Notifications** — when on, no match
+  notifies until you un-mute it from the calendar panel, turning the extension
+  into an opt-in tracker.
+- All new strings translated into every bundled locale (de, es, fr, it, pt).
+
 ## [1.2.0] - TBD
 
 ### Added
@@ -127,7 +151,8 @@ Initial release, published on [extensions.gnome.org](https://extensions.gnome.or
 - Translations: English, Spanish, Portuguese, Italian, German, French.
 - JSON fixture replay harness for development testing (replaced in 1.1.1).
 
-[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.2...v1.2.0
 [1.1.2]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.0...v1.1.1
