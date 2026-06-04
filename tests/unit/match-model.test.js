@@ -8,6 +8,7 @@ import {
     compareWithinCompetition,
     groupMatchesByCompetition,
     matchViewPassesSubscription,
+    teamAbbrev,
 } from '../../lib/match-model.js';
 
 let failures = 0;
@@ -170,6 +171,42 @@ print('matchViewPassesSubscription');
         matchViewPassesSubscription(view, { mode: 'teams', teams: ['99'] }) === false);
     check('teams-empty',
         matchViewPassesSubscription(view, { mode: 'teams', teams: [] }) === false);
+}
+
+// --- teamAbbrev: clean ESPN acronyms verbatim, derive 3 letters otherwise ---
+print('teamAbbrev');
+{
+    // A compact ≤4-char acronym from ESPN is used as-is (upper-cased).
+    eq('clean-3', teamAbbrev({ abbreviation: 'OHI', name: "O'Higgins" }), 'OHI');
+    eq('clean-4', teamAbbrev({ abbreviation: 'CDUC', name: 'Universidad Católica' }), 'CDUC');
+    eq('clean-lower', teamAbbrev({ abbreviation: 'UdeC', name: 'Universidad de Concepción' }), 'UDEC');
+    eq('clean-accent', teamAbbrev({ abbreviation: 'ÑUB', name: 'Ñublense' }), 'ÑUB');
+
+    // Digit/symbol acronyms are recognised shorthand — kept verbatim, NOT derived
+    // from the name (these are short enough to fit and are how fans know them).
+    eq('digits-b04', teamAbbrev({ abbreviation: 'B04', name: 'Bayer Leverkusen' }), 'B04');
+    eq('digits-s04', teamAbbrev({ abbreviation: 'S04', name: 'Schalke 04' }), 'S04');
+    eq('digits-rso2', teamAbbrev({ abbreviation: 'RSO2', name: 'Real Sociedad II' }), 'RSO2');
+    eq('symbol-om', teamAbbrev({ abbreviation: 'O&M', name: 'Universidad O&M' }), 'O&M');
+
+    // A bare club name dropped into `abbreviation` (no spaces but >4) → derived.
+    eq('bare-name', teamAbbrev({ abbreviation: 'Manauara', name: 'Manauara' }), 'MAN');
+
+    // The motivating case: ESPN's long, spaced abbreviation is replaced by a
+    // 3-letter acronym derived from the display name. "de" is a stopword, and
+    // the pad letter comes from the LAST significant word (Chile → H), so it is
+    // "UCH", not the colliding "UCN".
+    eq('chile-derived', teamAbbrev({ abbreviation: 'U. de Chile', name: 'Universidad de Chile' }), 'UCH');
+
+    // Long abbreviation but a single significant word → pad from that word.
+    eq('single-word-pad', teamAbbrev({ abbreviation: 'Cobresal FC', name: 'Cobresal' }), 'COB');
+
+    // Three significant words → first initials, no padding needed.
+    eq('three-words', teamAbbrev({ abbreviation: 'Paris Saint Germain', name: 'Paris Saint-Germain' }), 'PSG');
+
+    // Falls back gracefully when there's nothing to work with.
+    eq('empty', teamAbbrev({ abbreviation: '', name: '' }), '');
+    eq('name-only', teamAbbrev({ name: 'Real Madrid' }), 'RMA');
 }
 
 print('');
