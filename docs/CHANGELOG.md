@@ -53,7 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   so it can be turned off. Translated into all bundled locales (de, es, fr,
   it, pt).
 
-## [1.1.2] - TBD
+## [1.1.2] - 2026-06-05
 
 ### Added
 
