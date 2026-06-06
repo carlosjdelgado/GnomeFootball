@@ -1,0 +1,866 @@
+{
+  "leagues": [
+    {
+      "id": "15",
+      "name": "UEFA Champions League",
+      "logos": [
+        {
+          "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/2.png",
+          "rel": [
+            "full",
+            "default"
+          ]
+        },
+        {
+          "href": "https://a.espncdn.com/i/leaguelogos/soccer/500-dark/2.png",
+          "rel": [
+            "full",
+            "dark"
+          ]
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "315488",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 1,
+        "type": {
+          "id": "2",
+          "state": "in",
+          "description": "First Half",
+          "detail": "37'",
+          "shortDetail": "37'"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "86",
+              "homeAway": "home",
+              "score": "1",
+              "team": {
+                "displayName": "Real Madrid",
+                "shortDisplayName": "Madrid",
+                "abbreviation": "RMA",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png"
+              }
+            },
+            {
+              "id": "83",
+              "homeAway": "away",
+              "score": "1",
+              "team": {
+                "displayName": "FC Barcelona",
+                "shortDisplayName": "Barcelona",
+                "abbreviation": "BAR",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990010",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "364",
+              "homeAway": "home",
+              "score": "2",
+              "team": {
+                "displayName": "Liverpool",
+                "shortDisplayName": "Liverpool",
+                "abbreviation": "LIV",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png"
+              }
+            },
+            {
+              "id": "132",
+              "homeAway": "away",
+              "score": "1",
+              "team": {
+                "displayName": "Bayern Munich",
+                "shortDisplayName": "Bayern",
+                "abbreviation": "MUN",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990011",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "382",
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "displayName": "Manchester City",
+                "shortDisplayName": "Man City",
+                "abbreviation": "MNC",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png"
+              }
+            },
+            {
+              "id": "114",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "displayName": "Napoli",
+                "shortDisplayName": "Napoli",
+                "abbreviation": "NAP",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/114.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990012",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "359",
+              "homeAway": "home",
+              "score": "3",
+              "team": {
+                "displayName": "Arsenal",
+                "shortDisplayName": "Arsenal",
+                "abbreviation": "ARS",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png"
+              }
+            },
+            {
+              "id": "103",
+              "homeAway": "away",
+              "score": "2",
+              "team": {
+                "displayName": "AC Milan",
+                "shortDisplayName": "Milan",
+                "abbreviation": "MIL",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990013",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "363",
+              "homeAway": "home",
+              "score": "1",
+              "team": {
+                "displayName": "Chelsea",
+                "shortDisplayName": "Chelsea",
+                "abbreviation": "CHE",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png"
+              }
+            },
+            {
+              "id": "124",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "displayName": "Borussia Dortmund",
+                "shortDisplayName": "Dortmund",
+                "abbreviation": "DOR",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/124.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990014",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "160",
+              "homeAway": "home",
+              "score": "2",
+              "team": {
+                "displayName": "Paris Saint-Germain",
+                "shortDisplayName": "PSG",
+                "abbreviation": "PSG",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png"
+              }
+            },
+            {
+              "id": "110",
+              "homeAway": "away",
+              "score": "2",
+              "team": {
+                "displayName": "Internazionale",
+                "shortDisplayName": "Inter",
+                "abbreviation": "INT",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/110.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990015",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "1929",
+              "homeAway": "home",
+              "score": "1",
+              "team": {
+                "displayName": "Benfica",
+                "shortDisplayName": "Benfica",
+                "abbreviation": "SLB",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/1929.png"
+              }
+            },
+            {
+              "id": "11420",
+              "homeAway": "away",
+              "score": "3",
+              "team": {
+                "displayName": "RB Leipzig",
+                "shortDisplayName": "Leipzig",
+                "abbreviation": "RBL",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/11420.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990016",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "437",
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "displayName": "FC Porto",
+                "shortDisplayName": "Porto",
+                "abbreviation": "FCP",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png"
+              }
+            },
+            {
+              "id": "1068",
+              "homeAway": "away",
+              "score": "1",
+              "team": {
+                "displayName": "Atletico Madrid",
+                "shortDisplayName": "Atletico",
+                "abbreviation": "ATM",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/1068.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990017",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "139",
+              "homeAway": "home",
+              "score": "2",
+              "team": {
+                "displayName": "Ajax",
+                "shortDisplayName": "Ajax",
+                "abbreviation": "AJA",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/139.png"
+              }
+            },
+            {
+              "id": "432",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "displayName": "Galatasaray",
+                "shortDisplayName": "Galatasaray",
+                "abbreviation": "GAL",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/432.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990018",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "148",
+              "homeAway": "home",
+              "score": "1",
+              "team": {
+                "displayName": "PSV Eindhoven",
+                "shortDisplayName": "PSV",
+                "abbreviation": "PSV",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/148.png"
+              }
+            },
+            {
+              "id": "256",
+              "homeAway": "away",
+              "score": "1",
+              "team": {
+                "displayName": "Celtic",
+                "shortDisplayName": "Celtic",
+                "abbreviation": "CEL",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/256.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990019",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "111",
+              "homeAway": "home",
+              "score": "3",
+              "team": {
+                "displayName": "Juventus",
+                "shortDisplayName": "Juventus",
+                "abbreviation": "JUV",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png"
+              }
+            },
+            {
+              "id": "167",
+              "homeAway": "away",
+              "score": "1",
+              "team": {
+                "displayName": "Olympique Lyon",
+                "shortDisplayName": "Lyon",
+                "abbreviation": "LYON",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/167.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990020",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "104",
+              "homeAway": "home",
+              "score": "2",
+              "team": {
+                "displayName": "AS Roma",
+                "shortDisplayName": "Roma",
+                "abbreviation": "ROMA",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png"
+              }
+            },
+            {
+              "id": "243",
+              "homeAway": "away",
+              "score": "1",
+              "team": {
+                "displayName": "Sevilla",
+                "shortDisplayName": "Sevilla",
+                "abbreviation": "SEV",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/243.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990021",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "131",
+              "homeAway": "home",
+              "score": "4",
+              "team": {
+                "displayName": "Bayer Leverkusen",
+                "shortDisplayName": "Leverkusen",
+                "abbreviation": "B04",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/131.png"
+              }
+            },
+            {
+              "id": "2502",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "displayName": "Club Brugge",
+                "shortDisplayName": "Brugge",
+                "abbreviation": "BRU",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/2502.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990022",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "2250",
+              "homeAway": "home",
+              "score": "1",
+              "team": {
+                "displayName": "Sporting CP",
+                "shortDisplayName": "Sporting",
+                "abbreviation": "SCP",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png"
+              }
+            },
+            {
+              "id": "176",
+              "homeAway": "away",
+              "score": "2",
+              "team": {
+                "displayName": "Olympique Marseille",
+                "shortDisplayName": "Marseille",
+                "abbreviation": "OLM",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/176.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990024",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "360",
+              "homeAway": "home",
+              "score": "1",
+              "team": {
+                "displayName": "Manchester United",
+                "shortDisplayName": "Man Utd",
+                "abbreviation": "MAN",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/360.png"
+              }
+            },
+            {
+              "id": "89",
+              "homeAway": "away",
+              "score": "2",
+              "team": {
+                "displayName": "Real Sociedad",
+                "shortDisplayName": "Real Sociedad",
+                "abbreviation": "RSO",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990025",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "105",
+              "homeAway": "home",
+              "score": "2",
+              "team": {
+                "displayName": "Atalanta",
+                "shortDisplayName": "Atalanta",
+                "abbreviation": "ATA",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/105.png"
+              }
+            },
+            {
+              "id": "102",
+              "homeAway": "away",
+              "score": "2",
+              "team": {
+                "displayName": "Villarreal",
+                "shortDisplayName": "Villarreal",
+                "abbreviation": "VIL",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/102.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990026",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "174",
+              "homeAway": "home",
+              "score": "3",
+              "team": {
+                "displayName": "AS Monaco",
+                "shortDisplayName": "Monaco",
+                "abbreviation": "MON",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png"
+              }
+            },
+            {
+              "id": "93",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "displayName": "Athletic Club",
+                "shortDisplayName": "Athletic",
+                "abbreviation": "ATH",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990027",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "560",
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "displayName": "Shakhtar Donetsk",
+                "shortDisplayName": "Shakhtar",
+                "abbreviation": "SHK",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/560.png"
+              }
+            },
+            {
+              "id": "94",
+              "homeAway": "away",
+              "score": "1",
+              "team": {
+                "displayName": "Valencia",
+                "shortDisplayName": "Valencia",
+                "abbreviation": "VAL",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/94.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990028",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 5,
+        "type": {
+          "id": "28",
+          "state": "post",
+          "description": "Full Time",
+          "detail": "FT",
+          "shortDetail": "FT"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "257",
+              "homeAway": "home",
+              "score": "1",
+              "team": {
+                "displayName": "Rangers",
+                "shortDisplayName": "Rangers",
+                "abbreviation": "RAN",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/257.png"
+              }
+            },
+            {
+              "id": "2950",
+              "homeAway": "away",
+              "score": "1",
+              "team": {
+                "displayName": "Red Bull Salzburg",
+                "shortDisplayName": "Salzburg",
+                "abbreviation": "SLZ",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/2950.png"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "990099",
+      "date": "2026-05-16T19:00:00Z",
+      "status": {
+        "period": 0,
+        "type": {
+          "id": "1",
+          "state": "pre",
+          "description": "Scheduled",
+          "detail": "Scheduled",
+          "shortDetail": "8:00 PM"
+        }
+      },
+      "competitions": [
+        {
+          "competitors": [
+            {
+              "id": "367",
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "displayName": "Tottenham Hotspur",
+                "shortDisplayName": "Tottenham",
+                "abbreviation": "TOT",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/367.png"
+              }
+            },
+            {
+              "id": "142",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "displayName": "Feyenoord",
+                "shortDisplayName": "Feyenoord",
+                "abbreviation": "FEY",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/142.png"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
