@@ -4,8 +4,8 @@
   "eventId": "315488",
   "steps": [
     {
-      "label": "LOAD — 20 UCL matches today (live RMA-FCB + 18 finished + 1 upcoming)",
-      "expected": "Open the date menu on today: the panel lists 20 UEFA Champions League matches — Real Madrid vs Barcelona live (37', 1-1, minute column filled), 18 finished internationals with their scores (blank minute), and Tottenham vs Feyenoord upcoming with its kick-off time. Cold-start suppresses notifications for the already-finished/in-progress matches.",
+      "label": "LOAD — 20 UCL matches today (max-width stress: live 90+10', two-digit scores)",
+      "expected": "Open the date menu on today: the panel lists 20 UEFA Champions League matches — Real Madrid vs Barcelona live (90+10', 1-1, widest minute column), Liverpool 12-0 Bayern (two-digit home score) and Man City 0-11 Napoli (two-digit away score) to stress the score column, the rest finished internationals with their scores (blank minute), and Tottenham vs Feyenoord upcoming with its kick-off time. Verify NO horizontal scroll and no away-side gap even at this maximum width. Cold-start suppresses notifications for the already-finished/in-progress matches.",
       "scoreboard": "scoreboard-crowded.json",
       "injectDate": "now"
     },

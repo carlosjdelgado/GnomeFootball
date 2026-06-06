@@ -26,13 +26,13 @@
       "id": "315488",
       "date": "2026-05-16T19:00:00Z",
       "status": {
-        "period": 1,
+        "period": 2,
         "type": {
           "id": "2",
           "state": "in",
-          "description": "First Half",
-          "detail": "37'",
-          "shortDetail": "37'"
+          "description": "Second Half",
+          "detail": "90+10'",
+          "shortDetail": "90+10'"
         }
       },
       "competitions": [
@@ -83,7 +83,7 @@
             {
               "id": "364",
               "homeAway": "home",
-              "score": "2",
+              "score": "12",
               "team": {
                 "displayName": "Liverpool",
                 "shortDisplayName": "Liverpool",
@@ -94,7 +94,7 @@
             {
               "id": "132",
               "homeAway": "away",
-              "score": "1",
+              "score": "0",
               "team": {
                 "displayName": "Bayern Munich",
                 "shortDisplayName": "Bayern",
@@ -136,7 +136,7 @@
             {
               "id": "114",
               "homeAway": "away",
-              "score": "0",
+              "score": "11",
               "team": {
                 "displayName": "Napoli",
                 "shortDisplayName": "Napoli",
