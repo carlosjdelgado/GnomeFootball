@@ -31,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   into an opt-in tracker.
 - All new strings translated into every bundled locale (de, es, fr, it, pt).
 
-## [1.2.0] - TBD
+## [1.2.0] - 2026-06-08
 
 ### Added
 
