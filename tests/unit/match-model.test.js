@@ -4,6 +4,7 @@
 import {
     toMatchView,
     localDateKey,
+    utcRangeForLocalDay,
     compareMatchViews,
     compareWithinCompetition,
     groupMatchesByCompetition,
@@ -40,6 +41,21 @@ print('localDateKey');
     // Zero-padding of month and day.
     const padded = new Date(2026, 2, 3, 12, 0, 0); // 3 Mar 2026
     eq('zero-pad', localDateKey(padded.getTime()), '20260303');
+}
+
+// --- utcRangeForLocalDay: local day ±1, as a YYYYMMDD-YYYYMMDD range ---------
+print('utcRangeForLocalDay');
+{
+    const day = new Date(2026, 5, 12, 9, 0, 0); // 12 Jun 2026 local
+    eq('span-prev-next', utcRangeForLocalDay(day), '20260611-20260613');
+
+    // Crosses a month boundary on the lower edge.
+    const firstOfMonth = new Date(2026, 5, 1, 9, 0, 0); // 1 Jun 2026
+    eq('month-underflow', utcRangeForLocalDay(firstOfMonth), '20260531-20260602');
+
+    // Crosses a year boundary on the upper edge.
+    const lastOfYear = new Date(2026, 11, 31, 9, 0, 0); // 31 Dec 2026
+    eq('year-overflow', utcRangeForLocalDay(lastOfYear), '20261230-20270101');
 }
 
 // --- toMatchView normalisation ----------------------------------------------
