@@ -2,7 +2,7 @@
   "uuid": "gnomefootball@carlosjdelgado",
   "name": "Gnome Football",
   "description": "Native football match notifications: goals, cards, kick-off, half-time and full-time.",
-  "version-name": "2.0.0",
+  "version-name": "2.0.1",
   "shell-version": ["48", "49", "50"],
   "url": "https://github.com/carlosjdelgado/GnomeFootball",
   "settings-schema": "org.gnome.shell.extensions.gnomefootball",

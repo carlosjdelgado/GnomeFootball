@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.1] - 2026-06-12
+
+### Fixed
+
+- Calendar match panel now lists matches that kicked off in the early hours
+  of your local day. A match starting after midnight local time (e.g. a
+  04:00 kick-off in Europe/Madrid) falls in ESPN's previous UTC day, so the
+  panel's "today" fetch was filing it under yesterday and leaving it out of
+  today's list — even when it had already finished. The poller now fetches
+  the full UTC range that covers the local day, matching the logic the
+  calendar already used for other days, so an early-morning match shows up
+  alongside the day's upcoming fixtures under its competition.
+
 ## [2.0.0] - 2026-06-12
 
 ### Added
