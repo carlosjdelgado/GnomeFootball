@@ -1,0 +1,392 @@
+# Kabyle translation for GnomeFootball.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnomefootball package.
+# butterflyoffire <butterflyoffire@noreply.codeberg.org>, 2026.
+# Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnomefootball 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 08:20+0200\n"
+"PO-Revision-Date: 2026-06-13 10:47+0000\n"
+"Last-Translator: butterflyoffire <butterflyoffire@noreply.codeberg.org>\n"
+"Language-Team: Kabyle <https://translate.codeberg.org/projects/iseghzanen/"
+"gnome-football/kab/>\n"
+"Language: kab\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2026.6.1\n"
+
+#: prefs.js:35
+msgid "Spain"
+msgstr "Spanya"
+
+#: prefs.js:36
+msgid "England"
+msgstr "Legniz"
+
+#: prefs.js:37
+msgid "Italy"
+msgstr "Ṭelyan"
+
+#: prefs.js:38
+msgid "France"
+msgstr "Fransa"
+
+#: prefs.js:39
+msgid "Portugal"
+msgstr "Puṛtugal"
+
+#: prefs.js:40
+msgid "Germany"
+msgstr "Lalman"
+
+#: prefs.js:41
+msgid "Brazil"
+msgstr "Brizil"
+
+#: prefs.js:42
+msgid "Argentina"
+msgstr "Aṛjuntin"
+
+#: prefs.js:43
+msgid "Mexico"
+msgstr "Miksik"
+
+#: prefs.js:44
+msgid "Colombia"
+msgstr "Kulumbya"
+
+#: prefs.js:45
+msgid "Chile"
+msgstr "Cili"
+
+#: prefs.js:46
+msgid "United States"
+msgstr "Iwunak Yeddukklen n Temrikt"
+
+#: prefs.js:47
+msgid "UEFA"
+msgstr "UEFA"
+
+#: prefs.js:48
+msgid "CONMEBOL"
+msgstr "CONMEBOL"
+
+#: prefs.js:49
+msgid "CONCACAF"
+msgstr "CONCACAF"
+
+#: prefs.js:50
+msgid "FIFA"
+msgstr "FIFA"
+
+#: prefs.js:57
+msgid "Match start (kick-off)"
+msgstr "Beddu n wurar"
+
+#: prefs.js:58
+msgid "Goal"
+msgstr "Iswi"
+
+#: prefs.js:59 lib/notifier.js:179
+msgid "Yellow card"
+msgstr "Takarḍa tawṛaɣt"
+
+#: prefs.js:60 lib/notifier.js:189
+msgid "Red card"
+msgstr "Takarḍa tazeggaɣt"
+
+#: prefs.js:61 lib/notifier.js:167
+msgid "Substitution"
+msgstr "Abeddel"
+
+#: prefs.js:62
+msgid "First half ends"
+msgstr "Tagara n tallit tamezwarut"
+
+#: prefs.js:63
+msgid "Second half starts"
+msgstr "Beddu n tallit tis snat"
+
+#: prefs.js:64 lib/notifier.js:211
+msgid "Full-time"
+msgstr "Taggara n temlilit"
+
+#: prefs.js:65 lib/notifier.js:217
+msgid "Extra time"
+msgstr "Azegret"
+
+#: prefs.js:66 lib/notifier.js:223
+msgid "Penalty shootout"
+msgstr "Tiyitwin n yiswi"
+
+#: prefs.js:161 prefs.js:227
+msgid "Competitions"
+msgstr "Timenyugariwin"
+
+#: prefs.js:168
+msgid "Catalog"
+msgstr "Akaram"
+
+#: prefs.js:169
+msgid ""
+"Leagues and teams are loaded from a public sports data source and cached "
+"locally."
+msgstr ""
+
+#: prefs.js:178
+msgid "Refresh now"
+msgstr "Smiren tura"
+
+#: prefs.js:235 prefs.js:251 prefs.js:340
+msgid "Off"
+msgstr "D arurmid"
+
+#: prefs.js:252
+msgid "enabled"
+msgstr "yettwarmed"
+
+#: prefs.js:292
+msgid "Specific teams only"
+msgstr "Tirebbuyaɛ tulmisin kan"
+
+#: prefs.js:293
+msgid "Notify only for matches involving selected teams"
+msgstr ""
+
+#: prefs.js:299 prefs.js:388
+msgid "Teams will appear once the catalog has loaded."
+msgstr "Ad d-banent trebbuyaɛ mi ara d-yali ukaram."
+
+#: prefs.js:343
+msgid "All matches"
+msgstr "Akk timliliyin"
+
+#: prefs.js:347
+msgid "1 team selected"
+msgstr "1 n terbaɛt kan i yettwafernen"
+
+#: prefs.js:348
+msgid "teams selected"
+msgstr "Tirebbuyaɛ yettwafernen"
+
+#: prefs.js:427
+msgid "Events"
+msgstr "Tidyanin"
+
+#: prefs.js:436
+msgid "Match reminder"
+msgstr "Asmekti n temlilit"
+
+#: prefs.js:437
+msgid "Get a heads-up before a subscribed match kicks off."
+msgstr "Awi-d lexber uqbel ad yebdu wurar deg temlilit."
+
+#: prefs.js:442
+msgid "Remind me before kick-off"
+msgstr "Smekti-yi-d uqbel ad yebdu wurar"
+
+#: prefs.js:456
+msgid "Minutes before kick-off"
+msgstr "Daqayeq uqbel beddu n wurar"
+
+#: prefs.js:457
+msgid "Range: 5-180 minutes"
+msgstr ""
+
+#: prefs.js:468
+msgid "Notification types"
+msgstr "Anaw n wulɣu"
+
+#: prefs.js:469
+msgid "Choose which match events trigger a notification."
+msgstr "Fren acu n tedyanin n temlilit ara k-id-yessakin."
+
+#: prefs.js:488
+msgid "General"
+msgstr "Amatu"
+
+#: prefs.js:494
+msgid "Polling"
+msgstr "Tafrent"
+
+#: prefs.js:495
+msgid ""
+"How often to check for match updates. Lower values catch events sooner but "
+"use more bandwidth."
+msgstr ""
+
+#: prefs.js:507
+msgid "Polling interval (minutes)"
+msgstr ""
+
+#: prefs.js:508
+msgid "Range: 1-30 minutes"
+msgstr ""
+
+#: prefs.js:515
+msgid "Notifications"
+msgstr "Tilɣa"
+
+#: prefs.js:516
+msgid "Control how notifications behave when you interact with them."
+msgstr "Senqed amek ara xedment telɣa mi ara tetekkiḍ fell-asent."
+
+#: prefs.js:521
+msgid "Open match page on click"
+msgstr "Ldi asebter n temlilit s usiti"
+
+#: prefs.js:522
+msgid "Clicking a notification opens the match page in your browser."
+msgstr "Tannalin ɣef telɣa ad ldint asebter n temlilit deg iminig-ik⋅im."
+
+#: prefs.js:529
+msgid "Mute matches by default"
+msgstr "Sgugem timliliyin s wudem amezwer"
+
+#: prefs.js:530
+msgid "No match notifies until you un-mute it from the calendar panel."
+msgstr ""
+
+#: prefs.js:537
+msgid "Calendar panel"
+msgstr "Agalis n uwitay"
+
+#: prefs.js:538
+msgid ""
+"A section in the GNOME calendar (date menu) listing your subscribed matches "
+"for the selected day."
+msgstr ""
+
+#: prefs.js:543
+msgid "Show matches in the calendar"
+msgstr "Ssken-d timliliyin deg uwitay"
+
+#: prefs.js:544
+msgid ""
+"Browse past, current and upcoming matches by day from the top-bar clock menu."
+msgstr ""
+
+#: prefs.js:551
+msgid "Actions"
+msgstr "Tigawin"
+
+#: prefs.js:556
+msgid "Force a check now"
+msgstr "Hettem asefqed"
+
+#: prefs.js:557
+msgid "Asks the background poller to refresh match data immediately."
+msgstr ""
+
+#: prefs.js:560
+msgid "Check now"
+msgstr "Senqed tura"
+
+#: prefs.js:577
+msgid "Catalog not loaded yet"
+msgstr "Urɛad i d-yuli ukaram"
+
+#: prefs.js:578
+msgid "Catalog loaded"
+msgstr "Yuli-d ukaram"
+
+#: prefs.js:584
+msgid "Press \"Refresh now\" to load leagues and teams."
+msgstr "Sit ɣef \"Smiren tura\" iwakken ad d-alint telɣuɣiwin d terbaɛin."
+
+#: prefs.js:589 prefs.js:590
+msgid "Last refreshed"
+msgstr "Asmiren aneggaru"
+
+#: prefs.js:590
+msgid "refresh recommended"
+msgstr ""
+
+#: prefs.js:627
+msgid "Loading catalog…"
+msgstr "Aɛebbi n ukaram…"
+
+#: prefs.js:628 prefs.js:640
+msgid "Fetching leagues and teams"
+msgstr "Awway n telɣuqiwin n trebbuyaɛ"
+
+#: lib/notifier.js:112
+msgid "Home"
+msgstr "Axxam"
+
+#: lib/notifier.js:113
+msgid "Away"
+msgstr "Beṛṛa"
+
+#: lib/notifier.js:127
+msgid "Upcoming match"
+msgstr "Timlilit d-iteddun"
+
+#: lib/notifier.js:131
+msgid "Kick-off at"
+msgstr "Ad yebdu wurar af"
+
+#: lib/notifier.js:138
+msgid "Kick-off"
+msgstr "Beddu n wurar"
+
+#: lib/notifier.js:144
+msgid "GOAL"
+msgstr "ISWI"
+
+#: lib/notifier.js:154
+msgid "Goal disallowed"
+msgstr "Iswi yettwagi"
+
+#: lib/notifier.js:163
+msgid "%(in)s replaces %(out)s"
+msgstr "%(in)s deg nnuba n %(out)s"
+
+#: lib/notifier.js:199
+msgid "Half-time"
+msgstr "Azgen n tallit"
+
+#: lib/notifier.js:205
+msgid "Second half"
+msgstr "Azgen wis sin n wurar"
+
+#: lib/notifier.js:229
+msgid "Match update"
+msgstr "Aleqqem n temlilit"
+
+#: lib/notifier.js:280
+msgid "Mute match"
+msgstr "Sgugem timlilit"
+
+#: lib/calendar-panel.js:272
+msgid "Football"
+msgstr "Ddabex udar"
+
+#: lib/calendar-panel.js:283 lib/calendar-panel.js:322
+msgid "Mute all"
+msgstr "Sgugem-iten akk"
+
+#: lib/calendar-panel.js:321
+msgid "Un-mute all"
+msgstr "Tukksa n tsusmi i meṛṛa"
+
+#: lib/calendar-panel.js:524
+msgid "Loading…"
+msgstr "Yettɛebbi…"
+
+#: lib/calendar-panel.js:536
+msgid "No matches today"
+msgstr "Ulac timlilit ass-a"
+
+#: lib/calendar-panel.js:538
+msgid "No matches played on this day"
+msgstr "Ulac timliliyin i yuraren deg ass-nni"
+
+#: lib/calendar-panel.js:540
+msgid "No matches scheduled for this day"
+msgstr "Ulac timlilit ara d-yilin deg wass-nni"

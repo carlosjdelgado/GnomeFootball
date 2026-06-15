@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.2] - TBD
+
+### Added
+
+- Kabyle translation (86%) - thanks to @athmanemokraoui for your contribution
+
 ## [2.0.1] - 2026-06-12
 
 ### Fixed
@@ -164,7 +170,8 @@ Initial release, published on [extensions.gnome.org](https://extensions.gnome.or
 - Translations: English, Spanish, Portuguese, Italian, German, French.
 - JSON fixture replay harness for development testing (replaced in 1.1.1).
 
-[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.2...HEAD
+[2.0.2]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.2.0...v2.0.0
 [1.2.0]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.1.2...v1.2.0
