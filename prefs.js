@@ -519,7 +519,7 @@ export default class GnomeFootballPreferences extends ExtensionPreferences {
 
         const clickRow = new Adw.SwitchRow({
             title: _('Open match page on click'),
-            subtitle: _('Clicking a notification opens the match page in your browser.'),
+            subtitle: _('Clicking a notification, or a match score in the calendar panel, opens the match page in your browser.'),
             active: this._settings.get_boolean('open-match-page-on-click'),
         });
         this._settings.bind('open-match-page-on-click', clickRow, 'active', 0);

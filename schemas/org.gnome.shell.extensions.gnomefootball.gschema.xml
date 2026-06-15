@@ -91,8 +91,8 @@
 
     <key name="open-match-page-on-click" type="b">
       <default>true</default>
-      <summary>Open match page when a notification is clicked</summary>
-      <description>When enabled, clicking a notification opens the match page in your default browser. Enabled by default.</description>
+      <summary>Open match page on click</summary>
+      <description>When enabled, clicking a notification — or a match's score in the calendar panel — opens the match page in your default browser. Enabled by default.</description>
     </key>
 
     <key name="mute-matches-by-default" type="b">

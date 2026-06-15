@@ -7,7 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.0.2] - TBD
+## [2.0.3] - TBD
+
+### Added
+
+- Open a match's ESPN page from the calendar panel. Each match's score (or
+  kick-off time for upcoming matches) in the calendar panel is now clickable —
+  it underlines on hover and opens that match's page in your browser, the same
+  destination as clicking its notification. Reuses the existing
+  `open-match-page-on-click` toggle (**on by default**), so turning it off
+  disables the link in both places. Translated into all bundled locales.
+
+## [2.0.2] - 2026-06-15
 
 ### Added
 
@@ -170,7 +181,8 @@ Initial release, published on [extensions.gnome.org](https://extensions.gnome.or
 - Translations: English, Spanish, Portuguese, Italian, German, French.
 - JSON fixture replay harness for development testing (replaced in 1.1.1).
 
-[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.3...HEAD
+[2.0.3]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/carlosjdelgado/GnomeFootball/compare/v1.2.0...v2.0.0

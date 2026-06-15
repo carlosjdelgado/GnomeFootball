@@ -238,9 +238,16 @@ msgid "Open match page on click"
 msgstr "Spielseite beim Klicken öffnen"
 
 #: prefs.js:522
-msgid "Clicking a notification opens the match page in your browser."
+msgid ""
+"Clicking a notification, or a match score in the calendar panel, opens the "
+"match page in your browser."
 msgstr ""
-"Ein Klick auf eine Benachrichtigung öffnet die Spielseite in Ihrem Browser."
+"Ein Klick auf eine Benachrichtigung oder auf den Spielstand eines Spiels im "
+"Kalenderpanel öffnet die Spielseite in Ihrem Browser."
+
+#: lib/calendar-panel.js:622
+msgid "Open on ESPN"
+msgstr "Auf ESPN öffnen"
 
 #: prefs.js:529
 msgid "Mute matches by default"
