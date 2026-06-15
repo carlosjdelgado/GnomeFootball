@@ -241,8 +241,16 @@ msgid "Open match page on click"
 msgstr "Ldi asebter n temlilit s usiti"
 
 #: prefs.js:522
-msgid "Clicking a notification opens the match page in your browser."
+#, fuzzy
+#| msgid "Clicking a notification opens the match page in your browser."
+msgid ""
+"Clicking a notification, or a match score in the calendar panel, opens the "
+"match page in your browser."
 msgstr "Tannalin ɣef telɣa ad ldint asebter n temlilit deg iminig-ik⋅im."
+
+#: lib/calendar-panel.js:622
+msgid "Open on ESPN"
+msgstr ""
 
 #: prefs.js:529
 msgid "Mute matches by default"
