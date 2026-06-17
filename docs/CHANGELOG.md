@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.4] - TBD
+
+### Fixed
+
+- A finished match no longer fires a stale full-time notification after the
+  computer has been off. If you were watching a match when you shut down or
+  suspended, its in-progress snapshot was kept on disk and — because the
+  scoreboard fetch spans the local day ±1 — the same match was seen again the
+  next day already finished, producing a full-time notification for a match
+  that ended long ago. The poller now discards stale snapshots when it loads
+  them (before detection), so a match seen again after a long downtime is
+  treated as a cold start and its catch-up events are suppressed, matching how
+  the extension already handles matches that were already in progress when it
+  started watching.
+
 ## [2.0.3] - 2026-06-16
 
 ### Added
@@ -181,7 +196,8 @@ Initial release, published on [extensions.gnome.org](https://extensions.gnome.or
 - Translations: English, Spanish, Portuguese, Italian, German, French.
 - JSON fixture replay harness for development testing (replaced in 1.1.1).
 
-[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.3...HEAD
+[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.4...HEAD
+[2.0.4]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.3...v2.0.4
 [2.0.3]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.0...v2.0.1
