@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.5]
+
+### Added
+
+- Penalty shootout aggregate score, surfaced wherever the regular score is
+  shown. Knockout ties decided on penalties (e.g. Germany 1-1 Paraguay,
+  Paraguay through 3-4) now display the shootout result alongside the
+  regulation result:
+  - **Calendar panel**: the score cell stacks a small `(X - Y)` under the
+    `X - Y` regulation score, so the column does not widen on a crowded day.
+  - **Full-time notification**: the body reads e.g.
+    `Real Madrid 0-0 (5-3) FC Barcelona` instead of just the regulation
+    score.
+
+  The data comes from ESPN's `shootoutScore` field on each competitor; nothing
+  changes for matches without a shootout.
+
 ## [2.0.4] - 2026-06-17
 
 ### Fixed
@@ -196,7 +213,8 @@ Initial release, published on [extensions.gnome.org](https://extensions.gnome.or
 - Translations: English, Spanish, Portuguese, Italian, German, French.
 - JSON fixture replay harness for development testing (replaced in 1.1.1).
 
-[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.4...HEAD
+[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.5...HEAD
+[2.0.5]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.4...v2.0.5
 [2.0.4]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.3...v2.0.4
 [2.0.3]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.2...v2.0.3
 [2.0.2]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.1...v2.0.2

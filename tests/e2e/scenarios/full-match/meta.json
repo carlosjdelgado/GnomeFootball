@@ -98,8 +98,8 @@
       "injectDate": "now, -3 hours, +4 hours"
     },
     {
-      "label": "MATCH_END — final whistle",
-      "expected": "Notification: match ended. Panel today: Madrid-Barça now finished alongside the other two.",
+      "label": "MATCH_END — final whistle after penalty shootout",
+      "expected": "Notification: match ended with shootout aggregate — body shows Real Madrid 0-0 (5-3) FC Barcelona. Panel today: Madrid-Barça now finished alongside the other two; its score cell shows 0 - 0 with a small (5 - 3) under it.",
       "scoreboard": "scoreboard-011.json",
       "injectDate": "now, -3 hours, +4 hours"
     }

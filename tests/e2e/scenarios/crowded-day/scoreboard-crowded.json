@@ -406,11 +406,11 @@
       "status": {
         "period": 5,
         "type": {
-          "id": "28",
+          "id": "47",
           "state": "post",
-          "description": "Full Time",
-          "detail": "FT",
-          "shortDetail": "FT"
+          "description": "Final Score - After Penalties",
+          "detail": "FT-Pens",
+          "shortDetail": "FT-Pens"
         }
       },
       "competitions": [
@@ -420,6 +420,8 @@
               "id": "148",
               "homeAway": "home",
               "score": "1",
+              "shootoutScore": "5",
+              "winner": true,
               "team": {
                 "displayName": "PSV Eindhoven",
                 "shortDisplayName": "PSV",
@@ -431,6 +433,8 @@
               "id": "256",
               "homeAway": "away",
               "score": "1",
+              "shootoutScore": "4",
+              "winner": false,
               "team": {
                 "displayName": "Celtic",
                 "shortDisplayName": "Celtic",
@@ -784,11 +788,11 @@
       "status": {
         "period": 5,
         "type": {
-          "id": "28",
+          "id": "47",
           "state": "post",
-          "description": "Full Time",
-          "detail": "FT",
-          "shortDetail": "FT"
+          "description": "Final Score - After Penalties",
+          "detail": "FT-Pens",
+          "shortDetail": "FT-Pens"
         }
       },
       "competitions": [
@@ -798,6 +802,8 @@
               "id": "257",
               "homeAway": "home",
               "score": "1",
+              "shootoutScore": "2",
+              "winner": false,
               "team": {
                 "displayName": "Rangers",
                 "shortDisplayName": "Rangers",
@@ -809,6 +815,8 @@
               "id": "2950",
               "homeAway": "away",
               "score": "1",
+              "shootoutScore": "4",
+              "winner": true,
               "team": {
                 "displayName": "Red Bull Salzburg",
                 "shortDisplayName": "Salzburg",

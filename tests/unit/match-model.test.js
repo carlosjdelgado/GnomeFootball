@@ -103,6 +103,27 @@ print('toMatchView (sparse)');
     eq('no-kickoff', view.kickoffMs, null);
     eq('empty-state', view.state, '');
     eq('zero-scores', [view.homeScore, view.awayScore], [0, 0]);
+    eq('no-shootout-when-absent', [view.homeShootout, view.awayShootout], [null, null]);
+}
+
+// --- toMatchView shootout extraction (knockout ties) ------------------------
+print('toMatchView (shootout)');
+{
+    const sbEvent = {
+        id: 'X', date: '2026-06-29T17:00Z',
+        status: { type: { state: 'post', detail: 'FT-Pens', shortDetail: 'FT-Pens' } },
+        competitions: [{
+            competitors: [
+                { id: '1', homeAway: 'home', score: '1', shootoutScore: '3',
+                  team: { displayName: 'Germany', abbreviation: 'GER' } },
+                { id: '2', homeAway: 'away', score: '1', shootoutScore: '4',
+                  team: { displayName: 'Paraguay', abbreviation: 'PAR' } },
+            ],
+        }],
+    };
+    const view = toMatchView(sbEvent, {});
+    eq('home-shootout', view.homeShootout, 3);
+    eq('away-shootout', view.awayShootout, 4);
 }
 
 // --- compareMatchViews: live first, then by kickoff -------------------------
