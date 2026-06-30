@@ -28,11 +28,11 @@
       "status": {
         "period": 5,
         "type": {
-          "id": "28",
+          "id": "47",
           "state": "post",
-          "description": "Full Time",
-          "detail": "FT",
-          "shortDetail": "FT"
+          "description": "Final Score - After Penalties",
+          "detail": "FT-Pens",
+          "shortDetail": "FT-Pens"
         }
       },
       "competitions": [
@@ -42,6 +42,8 @@
               "id": "86",
               "homeAway": "home",
               "score": "0",
+              "shootoutScore": "5",
+              "winner": true,
               "team": {
                 "displayName": "Real Madrid",
                 "shortDisplayName": "Madrid",
@@ -53,6 +55,8 @@
               "id": "83",
               "homeAway": "away",
               "score": "0",
+              "shootoutScore": "3",
+              "winner": false,
               "team": {
                 "displayName": "FC Barcelona",
                 "shortDisplayName": "Barcelona",
