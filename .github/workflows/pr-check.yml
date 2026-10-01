@@ -25,7 +25,9 @@ jobs:
           python-version: '3.12'
 
       - name: Install shexli
-        run: pip install shexli
+        # tree-sitter<0.26 pinned: 0.26.0's wheel segfaults on the ubuntu-latest
+        # runner (shexli itself is pure Python; the crash is in its parser dep).
+        run: pip install shexli tree-sitter==0.25.2
 
       - name: Build extension package
         run: bash package.sh
