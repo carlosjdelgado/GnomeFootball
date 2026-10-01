@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `YYYYMMDD` paired with the user's IANA timezone (`tz=`), which makes ESPN
   return the correct local-day window in one request, in any timezone.
 
-## [2.0.5]
+## [2.0.5] - 2026-06-30
 
 ### Added
 
