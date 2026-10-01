@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.6]
+
+### Fixed
+
+- Matches on days other than today no longer disappear from the calendar
+  panel. The scoreboard fetch was passing a `YYYYMMDD-YYYYMMDD` range to
+  ESPN, which silently returns an empty event list for ranges — so navigating
+  to any future or past day showed no games. The fetch now sends a single
+  `YYYYMMDD` paired with the user's IANA timezone (`tz=`), which makes ESPN
+  return the correct local-day window in one request, in any timezone.
+
 ## [2.0.5]
 
 ### Added
@@ -213,7 +224,8 @@ Initial release, published on [extensions.gnome.org](https://extensions.gnome.or
 - Translations: English, Spanish, Portuguese, Italian, German, French.
 - JSON fixture replay harness for development testing (replaced in 1.1.1).
 
-[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.5...HEAD
+[Unreleased]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.6...HEAD
+[2.0.6]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.5...v2.0.6
 [2.0.5]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.4...v2.0.5
 [2.0.4]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.3...v2.0.4
 [2.0.3]: https://github.com/carlosjdelgado/GnomeFootball/compare/v2.0.2...v2.0.3
