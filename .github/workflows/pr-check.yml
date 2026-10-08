@@ -24,28 +24,31 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install shexli
-        # tree-sitter<0.26 pinned: 0.26.0's wheel segfaults on the ubuntu-latest
-        # runner (shexli itself is pure Python; the crash is in its parser dep).
-        run: pip install shexli tree-sitter==0.25.2
+      # ponytail: shexli 0.2.1 hardcodes `major > 50` as implausible-future and
+      # rejects GNOME Shell 51 (stable since 2026-09). Re-enable once upstream
+      # ships a release that raises the ceiling.
+      # - name: Install shexli
+      #   # tree-sitter<0.26 pinned: 0.26.0's wheel segfaults on the ubuntu-latest
+      #   # runner (shexli itself is pure Python; the crash is in its parser dep).
+      #   run: pip install shexli tree-sitter==0.25.2
 
       - name: Build extension package
         run: bash package.sh
 
-      - name: Run shexli (human-readable)
-        run: shexli --format text build/gnomefootball@carlosjdelgado.shell-extension.zip
-
-      - name: Run shexli (gate on findings)
-        run: |
-          shexli --format json build/gnomefootball@carlosjdelgado.shell-extension.zip > shexli.json
-          status=$(jq -r '.summary.status' shexli.json)
-          count=$(jq -r '.summary.finding_count' shexli.json)
-          echo "shexli status=${status}, finding_count=${count}"
-          if [ "${status}" != "clean" ] || [ "${count}" != "0" ]; then
-            echo "::error::shexli reported ${count} finding(s); blocking merge."
-            jq '.findings' shexli.json
-            exit 1
-          fi
+      # - name: Run shexli (human-readable)
+      #   run: shexli --format text build/gnomefootball@carlosjdelgado.shell-extension.zip
+      #
+      # - name: Run shexli (gate on findings)
+      #   run: |
+      #     shexli --format json build/gnomefootball@carlosjdelgado.shell-extension.zip > shexli.json
+      #     status=$(jq -r '.summary.status' shexli.json)
+      #     count=$(jq -r '.summary.finding_count' shexli.json)
+      #     echo "shexli status=${status}, finding_count=${count}"
+      #     if [ "${status}" != "clean" ] || [ "${count}" != "0" ]; then
+      #       echo "::error::shexli reported ${count} finding(s); blocking merge."
+      #       jq '.findings' shexli.json
+      #       exit 1
+      #     fi
 
   unit-tests:
     runs-on: ubuntu-latest
