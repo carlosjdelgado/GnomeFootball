@@ -7,7 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.0.6]
+## [2.1.0]
+
+### Added
+
+- GNOME Shell 51 is now listed in `metadata.json` as a supported shell
+  version, alongside 48, 49 and 50.
+
+## [2.0.6] - 2026-10-02
 
 ### Fixed
 

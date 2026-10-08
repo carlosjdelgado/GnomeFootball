@@ -13,7 +13,7 @@ Data comes from a public soccer data API. Configuration lives in the standard
 GNOME Extensions preferences window.
 
 - **UUID:** `gnomefootball@carlosjdelgado`
-- **GNOME Shell:** 48, 49, 50
+- **GNOME Shell:** 48, 49, 50, 51
 - **Language:** GJS (GNOME JavaScript), ES modules
 - **UI toolkit (prefs):** libadwaita 1.4+
 - **License:** [GPL-2.0-or-later](LICENSE)
@@ -87,7 +87,7 @@ context in the body.
 
 ## Requirements
 
-- GNOME Shell **48, 49 or 50**.
+- GNOME Shell **48, 49, 50 or 51**.
 - `glib-compile-schemas` (ships with `glib2`).
 - `msgfmt` (from `gettext`) — only needed to compile translations.
 - An internet connection (the extension fetches data from a public sports data
